@@ -9,30 +9,36 @@
 <body>
     <div class="dashboard">
         <nav class="sidebar" id="sidebar">
-            <div class="header">
-                <h2>Student Dashboard</h2>
-                <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+            <div class="logo">
+                <img src="TESL_logo.png" alt="Logo">
             </div>
+            <h2>Student Dashboard</h2>
             <ul>
-                <li><a href="#" onclick="showSection('classwork')">Classwork & Lesson</a></li>
-                <li><a href="#" onclick="showSection('attendance')">Attendance History</a></li>
-                <li><a href="#" onclick="showSection('marksheets')">Marksheets & Results</a></li>
-                <li><a href="#" onclick="showSection('fees')">Tuition Fees History</a></li>
-                <li><a href="#" onclick="showSection('leave')">Submit Leave Application</a></li>
+                <li><a href="#" onclick="showSection('classwork')">Classwork</a></li>
+                <li><a href="#" onclick="showSection('attendance')">Attendance</a></li>
+                <li><a href="#" onclick="showSection('marksheets')">Results</a></li>
+                <li><a href="#" onclick="showSection('fees')">Tuition Fees</a></li>
+                <li><a href="#" onclick="showSection('leave')">Leave Application</a></li>
+                <li><a href="#" onclick="logOut()">Log Out</a></li>
             </ul>
         </nav>
-
         <div class="content" id="content">
             <section id="classwork" class="section">
                 <h3>Classwork & Lesson</h3>
                 <p>Daily updates on classwork and lessons will appear here.</p>
             </section>
-
             <section id="attendance" class="section">
                 <h3>Attendance History</h3>
-                <p>Here, you can view your monthly attendance records.</p>
+                <div class="calendar" id="calendar">
+                    <div class="day-label">Sun</div>
+                    <div class="day-label">Mon</div>
+                    <div class="day-label">Tue</div>
+                    <div class="day-label">Wed</div>
+                    <div class="day-label">Thu</div>
+                    <div class="day-label">Fri</div>
+                    <div class="day-label">Sat</div>
+                </div>
             </section>
-        
             <section id="marksheets" class="section">
                 <h3>Marksheets & Results</h3>
                 <p>Your exam results and marksheets can be accessed here.</p>
@@ -49,7 +55,8 @@
             </section>
         </div>
     </div>
-
+    <div data-include-footer></div>
+    <script src="includeFooter.js" defer></script>
     <script src="studentDashboardScript.js"></script>
 </body>
 </html>

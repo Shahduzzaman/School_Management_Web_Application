@@ -1,20 +1,19 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+html, body {
+    height: 100%;
+    margin: 0; 
 }
 body {
-    height: 100vh;
-    background: linear-gradient(135deg, #883e27, #8d2051);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    background: rgb(255,111,0);
+    background: radial-gradient(circle, rgba(255,111,0,1) 0%, rgba(198,17,17,0.969625350140056) 26%, rgba(134,9,9,1) 75%);
 }
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 .login-box {
     background: rgba(255, 255, 255, 0.1);
@@ -82,3 +81,4 @@ body {
 .login-btn:hover {
     background-color: #6340b4;
 }
+
