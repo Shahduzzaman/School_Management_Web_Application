@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moderator Dashboard</title>
+    <link rel="stylesheet" href="moderatorDashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar" id="sidebar">
+            <div class="logo">
+                <img src="TESL_logo.png" alt="Logo">
+            </div>
+            <h2>Moderator Dashboard</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('attendance')">Attendance</a></li>
+                <li><a href="#" onclick="showSection('createAccount')">Create Account</a></li>
+                <li><a href="#" onclick="showSection('viewProfile')">View Profile</a></li>
+                <li><a href="#" onclick="showSection('myProfile')">My Profile</a></li>
+                <li><a href="#" onclick="logOut()">Log Out</a></li>
+            </ul>
+        </nav>
+        <div class="content" id="content">
+            <section id="attendance" class="section">
+                <h3>Teacher Attendance</h3>
+                <p>Manage and review attendance records for teachers here.</p>
+            </section>
+            
+            <section id="createAccount" class="section">
+                <h3>Create Account</h3>
+                <p>Create accounts for teachers, accountants, and students.</p>
+            </section>
+            
+            <section id="viewProfile" class="section">
+                <h3>View Profile</h3>
+                <p>Access profiles of users (excluding administrators).</p>
+            </section>
+            
+            <section id="myProfile" class="section">
+                <h3>My Profile</h3>
+                <p>View and update your own profile information.</p>
+            </section>
+        </div>
+    </div>
+    <div data-include-footer></div>
+    <script src="includeFooter.js" defer></script>
+    <script src="moderatorDashboard.js"></script>
+</body>
+</html>

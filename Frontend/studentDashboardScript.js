@@ -1,6 +1,3 @@
-function toggleSidebar() {
-    document.getElementById("sidebar").classList.toggle("collapsed");
-}
 function showSection(sectionId) {
     const sections = document.querySelectorAll(".section");
     sections.forEach((section) => {
@@ -32,5 +29,6 @@ function populateCalendar(month, year) {
     }
 }
 function logOut() {
+    alert("Logging out...");
     window.location.href = "login.html";
 }

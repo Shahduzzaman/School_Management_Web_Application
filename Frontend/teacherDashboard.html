@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="teacherDashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar" id="sidebar">
+            <div class="logo">
+                <img src="TESL_logo.png" alt="Logo">
+            </div>
+            <h2>Teacher Dashboard</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('attendance')">Attendance</a></li>
+                <li><a href="#" onclick="showSection('classwork')">Classwork</a></li>
+                <li><a href="#" onclick="showSection('results')">Results</a></li>
+                <li><a href="#" onclick="showSection('profile')">My Profile</a></li>
+                <li><a href="#" onclick="showSection('studentProfile')">Student Profile</a></li>
+                <li><a href="#" onclick="logOut()">Log Out</a></li>
+            </ul>
+        </nav>
+        <div class="content" id="content">
+            <section id="attendance" class="section">
+                <h3>Attendance</h3>
+                <p>Manage student attendance records here.</p>
+            </section>
+            
+            <section id="classwork" class="section">
+                <h3>Classwork & Assignments</h3>
+                <p>Update and manage classwork and assignments.</p>
+            </section>
+            
+            <section id="results" class="section">
+                <h3>Results</h3>
+                <p>Upload or update exam results for students here.</p>
+            </section>
+            
+            <section id="profile" class="section">
+                <h3>Your Profile</h3>
+                <p>View and update your profile information.</p>
+            </section>
+            
+            <section id="studentProfile" class="section">
+                <h3>Student Profiles</h3>
+                <p>Access detailed profiles of your students.</p>
+            </section>
+        </div>
+    </div>
+    <div data-include-footer></div>
+    <script src="includeFooter.js" defer></script>
+    <script src="teacherDashboard.js"></script>
+</body>
+</html>
