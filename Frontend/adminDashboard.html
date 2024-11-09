@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="adminDashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar" id="sidebar">
+            <div class="logo">
+                <img src="TESL_logo.png" alt="Logo">
+            </div>
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('overview')">Dashboard</a></li>
+                <li><a href="#" onclick="showSection('userManagement')">User</a></li>
+                <li><a href="#" onclick="showSection('attendanceManagement')">Attendance</a></li>
+                <li><a href="#" onclick="showSection('feesPayments')">Payments</a></li>
+                <li><a href="#" onclick="showSection('academicManagement')">Academic</a></li>
+                <li><a href="#" onclick="showSection('reportsAnalytics')">Reports</a></li>
+                <li><a href="#" onclick="showSection('leaveManagement')">Leave Management</a></li>
+                <li><a href="#" onclick="showSection('systemSettings')">Settings</a></li>
+                <li><a href="#" onclick="showSection('myProfile')">My Profile</a></li>
+                <li><a href="#" onclick="logOut()">Log Out</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content" id="content">
+            <section id="overview" class="section">
+                <h3>Dashboard Overview</h3>
+                <p>Overview of key metrics and statistics for quick insights.</p>
+            </section>
+
+            <section id="userManagement" class="section">
+                <h3>User Management</h3>
+                <p>Manage accounts, roles, and permissions for all users.</p>
+            </section>
+
+            <section id="attendanceManagement" class="section">
+                <h3>Attendance Management</h3>
+                <p>View and manage attendance for students and teachers.</p>
+            </section>
+
+            <section id="feesPayments" class="section">
+                <h3>Fees and Payments</h3>
+                <p>Manage tuition fees, view payments, and track pending fees.</p>
+            </section>
+
+            <section id="academicManagement" class="section">
+                <h3>Academic Management</h3>
+                <p>Oversee classwork, assignments, exams, and results.</p>
+            </section>
+
+            <section id="reportsAnalytics" class="section">
+                <h3>Reports & Analytics</h3>
+                <p>Generate reports and view analytics on attendance and performance.</p>
+            </section>
+
+            <section id="leaveManagement" class="section">
+                <h3>Leave Management</h3>
+                <p>Approve or deny leave requests from teachers and students.</p>
+            </section>
+
+            <section id="systemSettings" class="section">
+                <h3>System Settings</h3>
+                <p>Configure system settings, notifications, and backup options.</p>
+            </section>
+
+            <section id="myProfile" class="section">
+                <h3>My Profile</h3>
+                <p>View and update your profile information.</p>
+            </section>
+        </div>
+    </div>
+    <div data-include-footer></div>
+    <script src="includeFooter.js" defer></script>
+    <script src="adminDashboard.js"></script>
+</body>
+</html>

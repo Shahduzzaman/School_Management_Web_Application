@@ -28,18 +28,39 @@
                 <h3>Classwork & Lesson</h3>
                 <p>Daily updates on classwork and lessons will appear here.</p>
             </section>
-            <section id="attendance" class="section">
+
+            <section id="attendance" class="section active">
                 <h3>Attendance History</h3>
                 <div class="calendar" id="calendar">
-                    <div class="day-label">Sun</div>
-                    <div class="day-label">Mon</div>
-                    <div class="day-label">Tue</div>
-                    <div class="day-label">Wed</div>
-                    <div class="day-label">Thu</div>
-                    <div class="day-label">Fri</div>
-                    <div class="day-label">Sat</div>
                 </div>
+                
+                <div class="attendance-summary" id="attendance-summary">
+                    <p>Total Days Present: <span id="total-present">0</span></p>
+                    <p>Total Days Absent: <span id="total-absent">0</span></p>
+                    <p>Days Late: <span id="total-late">0</span></p>
+                    <p>Excused Absences: <span id="total-excused">0</span></p>
+                </div>
+                
+                <div class="attendance-filter">
+                    <label for="month-select">Select Month:</label>
+                    <select id="month-select" onchange="fetchAttendance()">
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+                <button class="request-correction" onclick="requestCorrection()">Request Correction</button>
             </section>
+            
             <section id="marksheets" class="section">
                 <h3>Marksheets & Results</h3>
                 <p>Your exam results and marksheets can be accessed here.</p>
