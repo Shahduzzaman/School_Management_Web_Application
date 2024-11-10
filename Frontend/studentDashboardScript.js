@@ -72,6 +72,56 @@ async function fetchClasswork(date) {
         tableBody.appendChild(row);
     });
 }
+document.addEventListener("DOMContentLoaded", function() {
+    fetchMarksheetData();
+});
+
+async function fetchMarksheetData() {
+    const tableHead = document.querySelector("#marksheets-table thead tr");
+    const tableBody = document.querySelector("#marksheets-table tbody");
+    tableBody.innerHTML = "";
+    const response = await fetch('/api/marksheets');  
+    const data = await response.json();
+    const { monthlyExams, subjects } = data;
+    const existingMonthlyColumns = document.querySelectorAll(".monthly-column");
+    existingMonthlyColumns.forEach(col => col.remove());
+    monthlyExams.forEach(month => {
+        const monthlyTh = document.createElement("th");
+        monthlyTh.classList.add("monthly-column");
+        monthlyTh.textContent = month;
+        tableHead.insertBefore(monthlyTh, tableHead.children[1]);
+    });
+    subjects.forEach(subjectData => {
+        const row = document.createElement("tr");
+        const subjectCell = document.createElement("td");
+        subjectCell.textContent = subjectData.subject;
+        row.appendChild(subjectCell);
+        subjectData.monthlyMarks.forEach(mark => {
+            const monthlyCell = document.createElement("td");
+            monthlyCell.textContent = mark;
+            row.appendChild(monthlyCell);
+        });
+        const firstTermCell = document.createElement("td");
+        firstTermCell.textContent = subjectData.firstTerm;
+        row.appendChild(firstTermCell);
+        const secondTermCell = document.createElement("td");
+        secondTermCell.textContent = subjectData.secondTerm;
+        row.appendChild(secondTermCell);
+        const finalTermCell = document.createElement("td");
+        finalTermCell.textContent = subjectData.final;
+        row.appendChild(finalTermCell);
+        const gradePointCell = document.createElement("td");
+        gradePointCell.textContent = subjectData.gradePoint.toFixed(2);
+        row.appendChild(gradePointCell);
+        const gradeLetterCell = document.createElement("td");
+        gradeLetterCell.textContent = subjectData.gradeLetter;
+        row.appendChild(gradeLetterCell);
+        tableBody.appendChild(row);
+    });
+}
+
+
+
 
 function logOut() {
     alert("Logging out...");

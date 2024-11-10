@@ -73,12 +73,12 @@ body {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #b57171;
+    background-color: #6340b4;
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
 .login-btn:hover {
-    background-color: #6340b4;
+    background-color: #620eeb;
 }
 
