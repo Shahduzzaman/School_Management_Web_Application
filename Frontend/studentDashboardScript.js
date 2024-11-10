@@ -34,6 +34,45 @@ function showSection(sectionId) {
     const activeSection = document.getElementById(sectionId);
     if (activeSection) activeSection.classList.add("active");
 }
+document.addEventListener("DOMContentLoaded", function() {
+    showSection("classwork");
+    const dateInput = document.getElementById("classwork-date");
+    fetchLastClassDate().then(lastDate => {
+        dateInput.value = lastDate;
+        fetchClasswork(lastDate);
+    });
+    dateInput.addEventListener("change", function() {
+        const selectedDate = this.value;
+        fetchClasswork(selectedDate);
+    });
+});
+
+async function fetchLastClassDate() {
+    const response = await fetch('/api/last-class-date'); 
+    const data = await response.json();
+    return data.lastClassDate; 
+}
+
+async function fetchClasswork(date) {
+    const tableBody = document.getElementById("classwork-table").querySelector("tbody");
+    tableBody.innerHTML = "";
+    const response = await fetch(`/api/classwork?date=${date}`);
+    const classworkData = await response.json();
+    classworkData.forEach((entry) => {
+        const row = document.createElement("tr");
+
+        const subjectCell = document.createElement("td");
+        subjectCell.textContent = entry.subject;
+        row.appendChild(subjectCell);
+
+        const lessonCell = document.createElement("td");
+        lessonCell.textContent = entry.lesson;
+        row.appendChild(lessonCell);
+
+        tableBody.appendChild(row);
+    });
+}
+
 function logOut() {
     alert("Logging out...");
     window.location.href = "login.html";
