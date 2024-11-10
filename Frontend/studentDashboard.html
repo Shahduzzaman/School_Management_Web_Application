@@ -43,16 +43,6 @@
 
             <section id="attendance" class="section active">
                 <h3>Attendance History</h3>
-                <div class="calendar" id="calendar">
-                </div>
-                
-                <div class="attendance-summary" id="attendance-summary">
-                    <p>Total Days Present: <span id="total-present">0</span></p>
-                    <p>Total Days Absent: <span id="total-absent">0</span></p>
-                    <p>Days Late: <span id="total-late">0</span></p>
-                    <p>Excused Absences: <span id="total-excused">0</span></p>
-                </div>
-                
                 <div class="attendance-filter">
                     <label for="month-select">Select Month:</label>
                     <select id="month-select" onchange="fetchAttendance()">
@@ -69,6 +59,16 @@
                         <option value="11">November</option>
                         <option value="12">December</option>
                     </select>
+                </div>
+                <div class="calendar" id="calendar">
+                </div>
+                
+                <div class="attendance-summary" id="attendance-summary">
+                    <h3>Attendance Summary</h3>
+                    <p>Total Days Present: <span id="total-present">0</span></p>
+                    <p>Total Days Absent: <span id="total-absent">0</span></p>
+                    <p>Days Late: <span id="total-late">0</span></p>
+                    <p>Excused Absences: <span id="total-excused">0</span></p>
                 </div>
                 <button class="request-correction" onclick="requestCorrection()">Request Correction</button>
             </section>
