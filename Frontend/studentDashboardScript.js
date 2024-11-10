@@ -120,8 +120,44 @@ async function fetchMarksheetData() {
     });
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('/api/fees-history')
+        .then(response => response.json())
+        .then(data => {
+            populateFeesHistoryTable(data); 
+        })
+        .catch(error => console.error("Error fetching fees history:", error));
+});
 
+function populateFeesHistoryTable(data) {
+    const tbody = document.getElementById("fees-history-tbody");
+    tbody.innerHTML = ""; 
+    data.forEach(item => {
+        const row = document.createElement("tr");
 
+        const categoryCell = document.createElement("td");
+        categoryCell.textContent = item.category;
+        row.appendChild(categoryCell);
+
+        const amountCell = document.createElement("td");
+        amountCell.textContent = `Tk. ${item.amount}`;
+        row.appendChild(amountCell);
+
+        const statusCell = document.createElement("td");
+        statusCell.textContent = item.status;
+        row.appendChild(statusCell);
+
+        const dateCell = document.createElement("td");
+        dateCell.textContent = item.date;
+        row.appendChild(dateCell);
+
+        tbody.appendChild(row);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    populateFeesHistoryTable(feesHistoryData);
+});
 
 function logOut() {
     alert("Logging out...");

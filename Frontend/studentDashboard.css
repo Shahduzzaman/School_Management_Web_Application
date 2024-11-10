@@ -167,3 +167,39 @@ body {
 #marksheets-table td {
     text-align: center;
 }
+
+#fees {
+    margin-top: 20px;
+}
+
+#fees h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#fees p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+#fees-history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#fees-history-table th, #fees-history-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#fees-history-table th {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+#fees-history-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
