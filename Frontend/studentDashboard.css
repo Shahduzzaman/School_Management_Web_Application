@@ -257,3 +257,79 @@ body {
 #send-application-button:hover {
     background-color: #45a049;
 }
+/* Profile Section Styling */
+#myProfile {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-picture-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: left;
+    margin: 0 auto 30px;
+    max-width: 400px;
+}
+
+.profile-item {
+    font-size: 1rem;
+    color: #333;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.change-password-section {
+    max-width: 400px;
+    margin: 20px auto 0;
+    text-align: left;
+}
+
+.change-password-section h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.change-password-section label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.change-password-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.change-password-section button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.change-password-section button:hover {
+    background-color: #45a049;
+}

@@ -96,14 +96,13 @@
             
             <section id="fees" class="section">
                 <h3>Tuition Fees History</h3>
-                <p>View your tuition fees payment history and details here.</p>
                 <table id="fees-history-table">
                     <thead>
                         <tr>
                             <th>Category</th>
                             <th>Amount</th>
                             <th>Status</th>
-                            <th>Date</th>
+                            <th>Payment Date</th>
                         </tr>
                     </thead>
                     <tbody id="fees-history-tbody">
@@ -122,9 +121,39 @@
             </section>            
 
             <section id="myProfile" class="section">
-                <h3>My Profiles</h3>
-                <p>Access detailed profiles.</p>
+                <h3>My Profile</h3>
+                <div class="profile-picture-container">
+                    <img src="path/to/profile-picture.jpg" alt="Profile Picture" id="profile-picture" />
+                </div>
+            
+                <div class="profile-info">
+                    <div class="profile-item"><strong>Student Name:</strong> <span id="student-name"></span></div>
+                    <div class="profile-item"><strong>Student ID:</strong> <span id="student-id"></span></div>
+                    <div class="profile-item"><strong>Date of Birth:</strong> <span id="date-of-birth"></span></div>
+                    <div class="profile-item"><strong>Father's Name:</strong> <span id="father-name"></span></div>
+                    <div class="profile-item"><strong>Mother's Name:</strong> <span id="mother-name"></span></div>
+                    <div class="profile-item"><strong>Guardian's Contact:</strong> <span id="guardian-contact"></span></div>
+                    <div class="profile-item"><strong>Present Address:</strong> <span id="present-address"></span></div>
+                    <div class="profile-item"><strong>Permanent Address:</strong> <span id="permanent-address"></span></div>
+                </div>
+            
+                <div class="change-password-section">
+                    <h4>Change Password</h4>
+                    <form id="change-password-form">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" required>
+            
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required>
+            
+                        <label for="re-enter-password">Re-enter New Password</label>
+                        <input type="password" id="re-enter-password" required>
+            
+                        <button type="submit">Change Password</button>
+                    </form>
+                </div>
             </section>
+            
         </div>
     </div>
     <div data-include-footer></div>
