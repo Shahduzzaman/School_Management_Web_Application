@@ -159,6 +159,20 @@ function populateFeesHistoryTable(data) {
 document.addEventListener("DOMContentLoaded", function() {
     populateFeesHistoryTable(feesHistoryData);
 });
+document.getElementById("leave-application-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const applicationBody = document.getElementById("application-body").value;
+    
+    if (applicationBody.trim() === "") {
+        alert("Please write your application before sending.");
+        return;
+    }
+    console.log("Application submitted:", applicationBody);
+    document.getElementById("application-body").value = "";
+    alert("Your leave application has been sent!");
+});
+
 
 function logOut() {
     alert("Logging out...");
