@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error("Error fetching fees history:", error));
 });
 
+
 function populateFeesHistoryTable(data) {
     const tbody = document.getElementById("fees-history-tbody");
     tbody.innerHTML = ""; 
