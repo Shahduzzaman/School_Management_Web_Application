@@ -111,11 +111,17 @@
                 </table>
             </section>
             
-            
             <section id="leave" class="section">
                 <h3>Leave Application Submission</h3>
                 <p>Submit leave applications here with status tracking.</p>
-            </section>
+                
+                <form id="leave-application-form">
+                    <label for="application-body">Application Body</label>
+                    <textarea id="application-body" placeholder="Write your application here..." rows="10" required></textarea>
+                    
+                    <button type="submit" id="send-application-button">Send</button>
+                </form>
+            </section>            
 
             <section id="myProfile" class="section">
                 <h3>My Profiles</h3>
