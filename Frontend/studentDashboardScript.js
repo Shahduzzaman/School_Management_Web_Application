@@ -173,74 +173,88 @@ document.getElementById("leave-application-form").addEventListener("submit", fun
     alert("Your leave application has been sent!");
 });
 
-// Replace with the actual student ID, or retrieve it dynamically from session or a hidden field
-const studentId = "12345"; 
+// Retrieve user ID from session storage
+const userId = sessionStorage.getItem("userId");
 
-async function loadProfileData(studentId) {
+// if (userId) {
+//     loadProfileData(userId); // Fetch profile data if userId is available
+// } else {
+//     // If no userId is found, redirect to the login page
+//     window.location.href = "/login.html";
+// }
+
+// Function to load and display profile data
+async function loadProfileData(userId) {
     try {
-        const response = await fetch(`/api/getStudentProfile?id=${studentId}`);
-        if (!response.ok) {
-            throw new Error("Failed to fetch profile data");
+        const response = await fetch(`/api/getUserProfile?userId=${userId}`);
+        const data = await response.json();
+
+        // Assuming the API returns a success status and the profile data
+        if (response.ok && data) {
+            document.getElementById("student-name").textContent = data.name || "N/A";
+            document.getElementById("user-id").textContent = userId;
+            document.getElementById("date-of-birth").textContent = data.dateOfBirth || "N/A";
+            document.getElementById("father-name").textContent = data.fatherName || "N/A";
+            document.getElementById("mother-name").textContent = data.motherName || "N/A";
+            document.getElementById("guardian-contact").textContent = data.guardianContact || "N/A";
+            document.getElementById("present-address").textContent = data.presentAddress || "N/A";
+            document.getElementById("permanent-address").textContent = data.permanentAddress || "N/A";
+            
+            // Set profile picture if provided by the database
+            if (data.profilePicture) {
+                document.getElementById("profile-picture").src = data.profilePicture;
+            }
+        } else {
+            console.error("Failed to load profile data:", data.message);
+            alert("Unable to load profile data. Please try again later.");
         }
-        const profileData = await response.json();
-
-        document.getElementById("student-name").textContent = profileData.name;
-        document.getElementById("student-id").textContent = profileData.id;
-        document.getElementById("date-of-birth").textContent = profileData.dob;
-        document.getElementById("father-name").textContent = profileData.fatherName;
-        document.getElementById("mother-name").textContent = profileData.motherName;
-        document.getElementById("guardian-contact").textContent = profileData.guardianContact;
-        document.getElementById("present-address").textContent = profileData.presentAddress;
-        document.getElementById("permanent-address").textContent = profileData.permanentAddress;
-        document.getElementById("profile-picture").src = profileData.profilePicture || 'default-picture.jpg'; // fallback to a default if not provided
-
     } catch (error) {
-        console.error("Error loading profile data:", error);
-        alert("Unable to load profile data. Please try again later.");
+        console.error("Error fetching profile data:", error);
+        alert("An error occurred while loading your profile. Please try again.");
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    loadProfileData(studentId);
-});
-
-document.getElementById("change-password-form").addEventListener("submit", async function(event) {
+// Handling Change Password
+document.getElementById("change-password-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const currentPassword = document.getElementById("current-password").value;
     const newPassword = document.getElementById("new-password").value;
     const reEnterPassword = document.getElementById("re-enter-password").value;
 
+    // Validate new password match
     if (newPassword !== reEnterPassword) {
-        alert("New passwords do not match!");
+        alert("New passwords do not match.");
         return;
     }
 
+    // Call the API to change the password
     try {
-        const response = await fetch(`/api/changePassword`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+        const response = await fetch("/api/changePassword", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                studentId,
+                userId,
                 currentPassword,
-                newPassword
-            })
+                newPassword,
+            }),
         });
-        const result = await response.json();
 
-        if (result.success) {
-            alert("Password changed successfully!");
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+            alert("Password changed successfully.");
+            // Optionally, clear the form
             document.getElementById("change-password-form").reset();
         } else {
-            alert(result.message || "Failed to change password.");
+            alert(result.message || "Failed to change password. Please try again.");
         }
     } catch (error) {
         console.error("Error changing password:", error);
-        alert("Unable to change password. Please try again later.");
+        alert("An error occurred. Please try again.");
     }
 });
+
 
 
 function logOut() {

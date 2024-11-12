@@ -20,14 +20,62 @@
             </ul>
         </nav>
         <div class="content" id="content">
-            <section id="updateFees" class="section">
-                <h3>Update Fees</h3>
-                <p>Update student tuition fees and view payment history here.</p>
+
+            <section id="fees" class="section">
+                <h3>Tuition Fees History</h3>
+                <div>
+                    <label for="user-id">Enter User ID:</label>
+                    <input type="text" id="user-id" placeholder="Enter User ID">
+                    <button onclick="loadUserFees()">Load Fees</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Payment Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fees-history-tbody">
+                    </tbody>
+                </table>
             </section>
-            
+
+
             <section id="myProfile" class="section">
                 <h3>My Profile</h3>
-                <p>View and update your own profile information.</p>
+                <div class="profile-picture-container">
+                    <img src="path/to/profile-picture.jpg" alt="Profile Picture" id="profile-picture" />
+                </div>
+            
+                <div class="profile-info">
+                    <div class="profile-item"><strong>Name:</strong> <span id="student-name"></span></div>
+                    <div class="profile-item"><strong>User ID:</strong> <span id="user-id"></span></div>
+                    <div class="profile-item"><strong>Date of Birth:</strong> <span id="date-of-birth"></span></div>
+                    <div class="profile-item"><strong>Father's Name:</strong> <span id="father-name"></span></div>
+                    <div class="profile-item"><strong>Mother's Name:</strong> <span id="mother-name"></span></div>
+                    <div class="profile-item"><strong>Guardian's Contact:</strong> <span id="guardian-contact"></span></div>
+                    <div class="profile-item"><strong>Present Address:</strong> <span id="present-address"></span></div>
+                    <div class="profile-item"><strong>Permanent Address:</strong> <span id="permanent-address"></span></div>
+                </div>
+            
+                <div class="change-password-section">
+                    <h4>Change Password</h4>
+                    <form id="change-password-form">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" required>
+            
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required>
+            
+                        <label for="re-enter-password">Re-enter New Password</label>
+                        <input type="password" id="re-enter-password" required>
+            
+                        <button type="submit">Change Password</button>
+                    </form>
+                </div>
             </section>
         </div>
     </div>
