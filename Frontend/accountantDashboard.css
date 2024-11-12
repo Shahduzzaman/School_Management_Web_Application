@@ -220,3 +220,30 @@ body {
 #fees-history-table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
+.user-id-input {
+    margin-bottom: 20px; 
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#student-user-id {
+    width: 300px; 
+    padding: 7px; 
+    font-size: 16px; 
+    margin: 10px 0; 
+    border-radius: 4px; 
+    border: 1px solid #ccc;
+}
+.user-id-input button {
+    padding: 7px 20px; 
+    font-size: 16px; 
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.user-id-input button:hover {
+    background-color: #620eeb;
+}

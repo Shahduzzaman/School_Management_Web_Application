@@ -1,23 +1,22 @@
-function showSection(sectionId) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        section.classList.remove('active');
-        if (section.id === sectionId) {
-            section.classList.add('active');
-        }
+document.addEventListener("DOMContentLoaded", () => {
+
+    showSection('fees');
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const sectionId = e.target.getAttribute('data-section-id');
+            showSection(sectionId);
+        });
     });
-}
-document.addEventListener("DOMContentLoaded", () => {
-    showSection('updateFees');
-});
-document.addEventListener("DOMContentLoaded", () => {
-    loadFeesData();
+
+
     document.getElementById("add-fee-btn").addEventListener("click", () => {
         document.getElementById("add-fee-form").style.display = "block";
     });
+
     document.getElementById("cancel-add-fee").addEventListener("click", () => {
         document.getElementById("add-fee-form").style.display = "none";
     });
+
     document.getElementById("new-fee-form").addEventListener("submit", async (event) => {
         event.preventDefault();
         const newFee = {
@@ -26,16 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
             status: document.getElementById("new-status").value,
             paymentDate: document.getElementById("new-date").value,
         };
-        
+
         try {
             const response = await fetch("/api/addFee", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-
                 body: JSON.stringify(newFee),
             });
             if (response.ok) {
-                loadFeesData();
+                loadUserFees();
                 document.getElementById("add-fee-form").reset();
                 document.getElementById("add-fee-form").style.display = "none";
             } else {
@@ -46,6 +44,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active'); 
+    });
+
+    const sectionToShow = document.getElementById(sectionId);
+    if (sectionToShow) {
+        sectionToShow.classList.add('active'); 
+    }
+}
+
 async function loadUserFees() {
     const userId = document.getElementById("user-id").value.trim();
     if (!userId) {
@@ -53,65 +64,61 @@ async function loadUserFees() {
         return;
     }
 
-    try {
-        loadFeesData(userId);
-    } catch (error) {
-        console.error("Error loading fees data:", error);
-        alert("Failed to load fees data.");
-    }
-}
+    document.getElementById("loading-message").style.display = "block"; 
 
-async function loadFeesData(userId) {
     try {
         const response = await fetch(`/api/getFeesHistory?userId=${userId}`);
         if (!response.ok) throw new Error("Failed to load fees history");
 
         const feesData = await response.json();
-
         const tbody = document.getElementById("fees-history-tbody");
-        tbody.innerHTML = ""; /
+        tbody.innerHTML = ""; 
 
-        feesData.forEach((fee) => {
-            const row = document.createElement("tr");
-
-            row.innerHTML = `
-                <td contenteditable="true" data-column="category">${fee.category}</td>
-                <td contenteditable="true" data-column="amount">${fee.amount}</td>
-                <td>
-                    <select data-column="status" onchange="updateStatus(this, '${fee.id}')">
-                        <option value="Paid" ${fee.status === "Paid" ? "selected" : ""}>Paid</option>
-                        <option value="Unpaid" ${fee.status === "Unpaid" ? "selected" : ""}>Unpaid</option>
-                    </select>
-                </td>
-                <td contenteditable="true" data-column="paymentDate">${fee.paymentDate}</td>
-                <td><button onclick="updateFee('${fee.id}', this)">Update</button></td>
-            `;
-            tbody.appendChild(row);
-        });
+        if (feesData.length === 0) {
+            tbody.innerHTML = "<tr><td colspan='5'>No fee records found for this user.</td></tr>";
+        } else {
+            feesData.forEach((fee) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${fee.category}</td>
+                    <td>${fee.amount}</td>
+                    <td>
+                        <select data-column="status" onchange="updateStatus(this, '${fee.id}')">
+                            <option value="Paid" ${fee.status === "Paid" ? "selected" : ""}>Paid</option>
+                            <option value="Unpaid" ${fee.status === "Unpaid" ? "selected" : ""}>Unpaid</option>
+                        </select>
+                    </td>
+                    <td>${fee.paymentDate}</td>
+                    <td><button onclick="updateFee('${fee.id}', this)">Update</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
     } catch (error) {
         console.error("Error loading fees data:", error);
         alert("Failed to load fees data. Please try again.");
-    }
-}
-function updateStatus(selectElement, feeId) {
-    const row = selectElement.closest("tr");
-    const status = selectElement.value;
-    
-    if (status === "Paid") {
-        const currentDate = new Date().toISOString().split('T')[0]; 
-        row.querySelector('[data-column="paymentDate"]').textContent = currentDate;
+    } finally {
+        document.getElementById("loading-message").style.display = "none"; 
     }
 }
 
-async function updateFee(feeId, button) {
-    const row = button.closest("tr");
-    const updatedFee = {
-        id: feeId,
-        category: row.querySelector('[data-column="category"]').textContent,
-        amount: row.querySelector('[data-column="amount"]').textContent,
-        status: row.querySelector('[data-column="status"]').value,
-        paymentDate: row.querySelector('[data-column="paymentDate"]').textContent,
-    };
+async function updateStatus(selectElement, feeId) {
+    const status = selectElement.value;
+    const row = selectElement.closest("tr");
+    const paymentDateCell = row.cells[3]; 
+
+    if (status === "Paid") {
+        paymentDateCell.textContent = new Date().toLocaleDateString();
+    } else {
+        paymentDateCell.textContent = "N/A";
+    }
+
+    await updateFee(feeId, status, paymentDateCell.textContent);
+}
+
+
+async function updateFee(feeId, status, paymentDate) {
+    const updatedFee = { id: feeId, status, paymentDate };
 
     try {
         const response = await fetch(`/api/updateFee`, {
@@ -119,9 +126,9 @@ async function updateFee(feeId, button) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedFee),
         });
-        
+
         if (response.ok) {
-            alert("Fee updated successfully.");
+            alert("Fee status updated successfully.");
         } else {
             throw new Error("Failed to update fee");
         }
@@ -132,51 +139,25 @@ async function updateFee(feeId, button) {
 }
 
 
-const userId = sessionStorage.getItem("userId");
-// This is for futur work
-// if (userId) {
-//     loadProfileData(userId); // Fetch profile data if userId is available
-// } else {
-//     // If no userId is found, redirect to the login page
-//     window.location.href = "/login.html";
-// }
-
-
-async function loadProfileData(userId) {
-    try {
-        const response = await fetch(`/api/getUserProfile?userId=${userId}`);
-        const data = await response.json();
-        if (response.ok && data) {
-            document.getElementById("student-name").textContent = data.name || "N/A";
-            document.getElementById("user-id").textContent = userId;
-            document.getElementById("date-of-birth").textContent = data.dateOfBirth || "N/A";
-            document.getElementById("father-name").textContent = data.fatherName || "N/A";
-            document.getElementById("mother-name").textContent = data.motherName || "N/A";
-            document.getElementById("guardian-contact").textContent = data.guardianContact || "N/A";
-            document.getElementById("present-address").textContent = data.presentAddress || "N/A";
-            document.getElementById("permanent-address").textContent = data.permanentAddress || "N/A";
-            if (data.profilePicture) {
-                document.getElementById("profile-picture").src = data.profilePicture;
-            }
-        } else {
-            console.error("Failed to load profile data:", data.message);
-            alert("Unable to load profile data. Please try again later.");
-        }
-    } catch (error) {
-        console.error("Error fetching profile data:", error);
-        alert("An error occurred while loading your profile. Please try again.");
-    }
-}
 document.getElementById("change-password-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const currentPassword = document.getElementById("current-password").value;
     const newPassword = document.getElementById("new-password").value;
     const reEnterPassword = document.getElementById("re-enter-password").value;
+    const userId = sessionStorage.getItem("userId");
+
+    if (!userId) {
+        alert("Please log in first.");
+        window.location.href = "/login.html";
+        return;
+    }
+
     if (newPassword !== reEnterPassword) {
         alert("New passwords do not match.");
         return;
     }
+
     try {
         const response = await fetch("/api/changePassword", {
             method: "POST",
@@ -189,7 +170,7 @@ document.getElementById("change-password-form").addEventListener("submit", async
         });
 
         const result = await response.json();
-        
+
         if (response.ok && result.success) {
             alert("Password changed successfully.");
             document.getElementById("change-password-form").reset();
@@ -201,8 +182,8 @@ document.getElementById("change-password-form").addEventListener("submit", async
         alert("An error occurred. Please try again.");
     }
 });
-
 function logOut() {
     alert("Logging out...");
-    window.location.href = "login.html";
+    sessionStorage.clear(); 
+    window.location.href = "login.html"; 
 }

@@ -14,36 +14,36 @@
             </div>
             <h2>Accountant Dashboard</h2>
             <ul>
-                <li><a href="#" onclick="showSection('updateFees')">Update Fees</a></li>
+                <li><a href="javascript:void(0);" class="nav-link" data-section-id="fees">Update Fees</a></li>
                 <li><a href="#" onclick="showSection('myProfile')">My Profile</a></li>
                 <li><a href="#" onclick="logOut()">Log Out</a></li>
             </ul>
         </nav>
         <div class="content" id="content">
 
-            <section id="fees" class="section">
-                <h3>Tuition Fees History</h3>
-                <div>
-                    <label for="user-id">Enter User ID:</label>
-                    <input type="text" id="user-id" placeholder="Enter User ID">
+            <section id="fees" class="section active">
+                <h3>Student Tuition Fees</h3>
+                <div class="user-id-input">
+                    <label for="student-user-id">Enter User ID:</label>
+                    <input type="text" id="student-user-id" placeholder="Enter User ID">
                     <button onclick="loadUserFees()">Load Fees</button>
                 </div>
-                <table>
+                <p id="loading-message" style="display: none;">Loading data...</p>
+                <table id="fees-history-table">
                     <thead>
                         <tr>
                             <th>Category</th>
                             <th>Amount</th>
                             <th>Status</th>
                             <th>Payment Date</th>
-                            <th>Actions</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="fees-history-tbody">
-                    </tbody>
+                    <tbody id="fees-history-tbody"></tbody>
                 </table>
             </section>
-
-
+            
+            
             <section id="myProfile" class="section">
                 <h3>My Profile</h3>
                 <div class="profile-picture-container">
