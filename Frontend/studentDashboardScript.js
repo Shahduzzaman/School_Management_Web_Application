@@ -176,12 +176,12 @@ document.getElementById("leave-application-form").addEventListener("submit", fun
 // Retrieve user ID from session storage
 const userId = sessionStorage.getItem("userId");
 
-if (userId) {
-    loadProfileData(userId); // Fetch profile data if userId is available
-} else {
-    // If no userId is found, redirect to the login page
-    window.location.href = "/login.html";
-}
+// if (userId) {
+//     loadProfileData(userId); // Fetch profile data if userId is available
+// } else {
+//     // If no userId is found, redirect to the login page
+//     window.location.href = "/login.html";
+// }
 
 // Function to load and display profile data
 async function loadProfileData(userId) {

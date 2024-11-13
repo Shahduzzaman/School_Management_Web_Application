@@ -25,7 +25,40 @@
         <div class="content" id="content">
             <section id="attendance" class="section">
                 <h3>Attendance</h3>
-                <p>Manage student attendance records here.</p>
+                <p>Manage and review attendance records for Students here.</p>
+            
+                <label for="classSelect">Select Class:</label>
+                <select id="classSelect" name="class" onchange="loadAttendance()">
+                    <option value="pre-school">Pre-School</option>
+                    <option value="play">Play</option>
+                    <option value="nursery">Nursery</option>
+                    <option value="grade-1">Grade 1</option>
+                    <option value="grade-2">Grade 2</option>
+                    <option value="grade-3">Grade 3</option>
+                    <option value="grade-4">Grade 4</option>
+                    <option value="grade-5">Grade 5</option>
+                    <option value="grade-6">Grade 6</option>
+                    <option value="grade-7">Grade 7</option>
+                    <option value="grade-8">Grade 8</option>
+                    <option value="grade-9">Grade 9</option>
+                    <option value="grade-10">Grade 10</option>
+                </select>
+                <div class="attendance-table-container">
+                    <table class="attendance-table" id="attendanceTable">
+                        <thead>
+                            <tr>
+                                <th>Roll Number</th>
+                                <th>User ID</th>
+                                <th>Name</th>
+                                <th>Last Day</th>
+                                <th>Today</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceTableBody">
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" onclick="submitAttendance()">Submit Attendance</button>
             </section>
             
             <section id="classwork" class="section">
@@ -34,13 +67,278 @@
             </section>
             
             <section id="results" class="section">
-                <h3>Results</h3>
-                <p>Upload or update exam results for students here.</p>
+                <h2>Results</h2>
+                <h4>Upload or update exam results for students here.</h4>
+        
+                <form id="resultTableForm">
+
+                    <div id="formContainer">
+                        <label for="examSelect">Select Exam:</label>
+                        <select id="examSelect" name="exam">
+                            <option value="first-term">1st Term Exam</option>
+                            <option value="second-term">2nd Term Exam</option>
+                            <option value="annual">Annual Exam</option>
+                        </select>
+                        <div id="studentIdContainer">
+                            <label for="studentId">Enter Student ID:</label>
+                            <input type="text" id="studentId" name="studentId" placeholder="Enter Student ID">
+                            <button type="button" onclick="fetchStudentInfo()">Apply</button>
+                        </div>
+                        <div id="studentInfo">
+                            <div class="profile-item"><strong>Name:</strong> <span id="student-name"></span></div>
+                            <div class="profile-item"><strong>User ID:</strong> <span id="user-id"></span></div>
+                            <div class="profile-item"><strong>Roll Number:</strong> <span id="rollNumber"></span></div>
+                        </div>
+                        
+                    </div>
+
+                    <h4>Results Table</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Serial No.</th>
+                                <th>Subject</th>
+                                <th>Full Marks</th>
+                                <th>Written</th>
+                                <th>MCQ</th>
+                                <th>Practical</th>
+                                <th>Total</th>
+                                <th>Highest</th>
+                                <th>Letter Grade</th>
+                                <th>Grade Point</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><input type="text" name="subject1Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject1FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject1Written"></td>
+                                <td><input type="number" name="subject1MCQ"></td>
+                                <td><input type="number" name="subject1Practical"></td>
+                                <td><input type="number" name="subject1Total"></td>
+                                <td><input type="number" name="subject1Highest"></td>
+                                <td><input type="text" name="subject1LetterGrade"></td>
+                                <td><input type="number" name="subject1GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><input type="text" name="subject2Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject2FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject2Written"></td>
+                                <td><input type="number" name="subject2MCQ"></td>
+                                <td><input type="number" name="subject2Practical"></td>
+                                <td><input type="number" name="subject2Total"></td>
+                                <td><input type="number" name="subject2Highest"></td>
+                                <td><input type="text" name="subject2LetterGrade"></td>
+                                <td><input type="number" name="subject2GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><input type="text" name="subject3Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject3FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject3Written"></td>
+                                <td><input type="number" name="subject3MCQ"></td>
+                                <td><input type="number" name="subject3Practical"></td>
+                                <td><input type="number" name="subject3Total"></td>
+                                <td><input type="number" name="subject3Highest"></td>
+                                <td><input type="text" name="subject3LetterGrade"></td>
+                                <td><input type="number" name="subject3GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><input type="text" name="subject3Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject3FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject3Written"></td>
+                                <td><input type="number" name="subject3MCQ"></td>
+                                <td><input type="number" name="subject3Practical"></td>
+                                <td><input type="number" name="subject3Total"></td>
+                                <td><input type="number" name="subject3Highest"></td>
+                                <td><input type="text" name="subject3LetterGrade"></td>
+                                <td><input type="number" name="subject3GradePoint"></td>
+                            </tr>
+
+
+                            <tr>
+                                <td>4</td>
+                                <td><input type="text" name="subject4Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject4FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject4Written"></td>
+                                <td><input type="number" name="subject4MCQ"></td>
+                                <td><input type="number" name="subject4Practical"></td>
+                                <td><input type="number" name="subject4Total"></td>
+                                <td><input type="number" name="subject4Highest"></td>
+                                <td><input type="text" name="subject4LetterGrade"></td>
+                                <td><input type="number" name="subject4GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><input type="text" name="subject5Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject5FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject5Written"></td>
+                                <td><input type="number" name="subject5MCQ"></td>
+                                <td><input type="number" name="subject5Practical"></td>
+                                <td><input type="number" name="subject5Total"></td>
+                                <td><input type="number" name="subject5Highest"></td>
+                                <td><input type="text" name="subject5LetterGrade"></td>
+                                <td><input type="number" name="subject5GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><input type="text" name="subject6Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject6FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject6Written"></td>
+                                <td><input type="number" name="subject6MCQ"></td>
+                                <td><input type="number" name="subject6Practical"></td>
+                                <td><input type="number" name="subject6Total"></td>
+                                <td><input type="number" name="subject6Highest"></td>
+                                <td><input type="text" name="subject6LetterGrade"></td>
+                                <td><input type="number" name="subject6GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><input type="text" name="subject7Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject7FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject7Written"></td>
+                                <td><input type="number" name="subject7MCQ"></td>
+                                <td><input type="number" name="subject7Practical"></td>
+                                <td><input type="number" name="subject7Total"></td>
+                                <td><input type="number" name="subject7Highest"></td>
+                                <td><input type="text" name="subject7LetterGrade"></td>
+                                <td><input type="number" name="subject7GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><input type="text" name="subject8Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject8FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject8Written"></td>
+                                <td><input type="number" name="subject8MCQ"></td>
+                                <td><input type="number" name="subject8Practical"></td>
+                                <td><input type="number" name="subject8Total"></td>
+                                <td><input type="number" name="subject8Highest"></td>
+                                <td><input type="text" name="subject8LetterGrade"></td>
+                                <td><input type="number" name="subject8GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><input type="text" name="subject9Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject9FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject9Written"></td>
+                                <td><input type="number" name="subject9MCQ"></td>
+                                <td><input type="number" name="subject9Practical"></td>
+                                <td><input type="number" name="subject9Total"></td>
+                                <td><input type="number" name="subject9Highest"></td>
+                                <td><input type="text" name="subject9LetterGrade"></td>
+                                <td><input type="number" name="subject9GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><input type="text" name="subject10Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject10FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject10Written"></td>
+                                <td><input type="number" name="subject10MCQ"></td>
+                                <td><input type="number" name="subject10Practical"></td>
+                                <td><input type="number" name="subject10Total"></td>
+                                <td><input type="number" name="subject10Highest"></td>
+                                <td><input type="text" name="subject10LetterGrade"></td>
+                                <td><input type="number" name="subject10GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><input type="text" name="subject11Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject11FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject11Written"></td>
+                                <td><input type="number" name="subject11MCQ"></td>
+                                <td><input type="number" name="subject11Practical"></td>
+                                <td><input type="number" name="subject11Total"></td>
+                                <td><input type="number" name="subject11Highest"></td>
+                                <td><input type="text" name="subject11LetterGrade"></td>
+                                <td><input type="number" name="subject11GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><input type="text" name="subject12Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject12FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject12Written"></td>
+                                <td><input type="number" name="subject12MCQ"></td>
+                                <td><input type="number" name="subject12Practical"></td>
+                                <td><input type="number" name="subject12Total"></td>
+                                <td><input type="number" name="subject12Highest"></td>
+                                <td><input type="text" name="subject12LetterGrade"></td>
+                                <td><input type="number" name="subject12GradePoint"></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><input type="text" name="subject13Name" placeholder="Subject Name"></td>
+                                <td><input type="number" name="subject13FullMarks" placeholder="100"></td>
+                                <td><input type="number" name="subject13Written"></td>
+                                <td><input type="number" name="subject13MCQ"></td>
+                                <td><input type="number" name="subject13Practical"></td>
+                                <td><input type="number" name="subject13Total"></td>
+                                <td><input type="number" name="subject13Highest"></td>
+                                <td><input type="text" name="subject13LetterGrade"></td>
+                                <td><input type="number" name="subject13GradePoint"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <div id="totalMarksContainer">
+                    <label for="monthlyExamTotal">Total of Monthly Exam:</label>
+                    <input type="number" id="monthlyExamTotal" name="monthlyExamTotal">
+                    
+                    <label for="monthlyExamPercentage">20% of Monthly Exam:</label>
+                    <input type="number" id="monthlyExamPercentage" name="monthlyExamPercentage">
+                    
+                    <label for="gpaWithoutAdditional">GPA without the Additional Subject:</label>
+                    <input type="number" id="gpaWithoutAdditional" name="gpaWithoutAdditional">
+                    
+                    <label for="totalGpa">Total GPA:</label>
+                    <input type="number" id="totalGpa" name="totalGpa">
+                    
+                    <label for="comment">Comment:</label>
+                    <textarea id="comment" name="comment" rows="3" placeholder="Add a comment"></textarea>
+                
+                    <label for="totalMarks">Total Marks:</label>
+                    <input type="number" id="totalMarks" name="totalMarks">
+                    
+                    <label for="procuredMarks">Procured Marks:</label>
+                    <input type="number" id="procuredMarks" name="procuredMarks">
+                </div>
+                <button type="submit">Submit Results</button>
             </section>
             
+
             <section id="profile" class="section">
-                <h3>Your Profile</h3>
-                <p>View and update your profile information.</p>
+                <h3>My Profile</h3>
+                <div class="profile-picture-container">
+                    <img src="path/to/profile-picture.jpg" alt="Profile Picture" id="profile-picture" />
+                </div>
+            
+                <div class="profile-info">
+                    <div class="profile-item"><strong>Name:</strong> <span id="student-name"></span></div>
+                    <div class="profile-item"><strong>User ID:</strong> <span id="user-id"></span></div>
+                    <div class="profile-item"><strong>Date of Birth:</strong> <span id="date-of-birth"></span></div>
+                    <div class="profile-item"><strong>Father's Name:</strong> <span id="father-name"></span></div>
+                    <div class="profile-item"><strong>Mother's Name:</strong> <span id="mother-name"></span></div>
+                    <div class="profile-item"><strong>Guardian's Contact:</strong> <span id="guardian-contact"></span></div>
+                    <div class="profile-item"><strong>Present Address:</strong> <span id="present-address"></span></div>
+                    <div class="profile-item"><strong>Permanent Address:</strong> <span id="permanent-address"></span></div>
+                </div>
+            
+                <div class="change-password-section">
+                    <h3>Change Password</h3>
+                    <form id="change-password-form">
+                        <label for="current-password">Current Password</label>
+                        <input type="password" id="current-password" required>
+            
+                        <label for="new-password">New Password</label>
+                        <input type="password" id="new-password" required>
+            
+                        <label for="re-enter-password">Re-enter New Password</label>
+                        <input type="password" id="re-enter-password" required>
+                    </form>
+                    <button type="submit">Change Password</button>
+                </div>
             </section>
             
             <section id="studentProfile" class="section">

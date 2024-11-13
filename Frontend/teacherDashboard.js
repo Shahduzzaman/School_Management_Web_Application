@@ -11,6 +11,8 @@ function showSection(sectionId) {
 document.addEventListener("DOMContentLoaded", () => {
     showSection('attendance');
 });
+
+
 function logOut() {
     alert("Logging out...");
     window.location.href = "login.html";
