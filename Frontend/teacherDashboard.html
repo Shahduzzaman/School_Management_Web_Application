@@ -86,8 +86,8 @@
                                 <button type="button" onclick="fetchStudentInfo()">Apply</button>
                             </div>
                             <div id="studentInfo">
-                                <div class="profile-item"><strong>Name:</strong> <span id="student-name"></span></div>
                                 <div class="profile-item"><strong>User ID:</strong> <span id="user-id"></span></div>
+                                <div class="profile-item"><strong>Name:</strong> <span id="student-name"></span></div>
                                 <div class="profile-item"><strong>Roll Number:</strong> <span id="rollNumber"></span></div>
                             </div>
                             
@@ -351,21 +351,20 @@
                     <button type="button" onclick="fetchStudentProfile()">Search</button>
                 </div>
             
-                <div id="studentProfileDisplay" style="display: none;">
+                <div id="studentProfileDisplay">
                     <div class="profile-picture-container">
                         <img src="" alt="Profile Picture" id="student-profile-picture" />
                     </div>
             
                     <div class="profile-info">
-                        <div class="profile-item"><strong>Name:</strong> <span id="student-name-display"></span></div>
                         <div class="profile-item"><strong>User ID:</strong> <span id="user-id-display"></span></div>
+                        <div class="profile-item"><strong>Name:</strong> <span id="student-name-display"></span></div>
                         <div class="profile-item"><strong>Roll Number:</strong> <span id="roll-number-display"></span></div>
                     </div>
             
                     <div id="examSelection">
                         <label for="examTypeSelect">Select Exam:</label>
                         <select id="examTypeSelect" onchange="loadExamResults()">
-                            <option value="">Select Exam Type</option>
                             <option value="first-term">1st Term Exam</option>
                             <option value="second-term">2nd Term Exam</option>
                             <option value="annual">Annual Exam</option>
@@ -373,10 +372,11 @@
                     </div>
             
                     <div id="examResults">
-                        <h4>Exam Results</h4>
+                        <h4>Results Table</h4>
                         <table>
                             <thead>
                                 <tr>
+                                    <th>Serial No.</th>
                                     <th>Subject</th>
                                     <th>Full Marks</th>
                                     <th>Written</th>
@@ -388,10 +388,45 @@
                                     <th>Grade Point</th>
                                 </tr>
                             </thead>
-                            <tbody id="resultsTableBody">
-                                <!-- Results will be populated here by JavaScript -->
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><span id="subject1Name"></span></td>
+                                    <td><span id="subject1FullMarks"></span></td>
+                                    <td><span id="subject1Written"></span></td>
+                                    <td><span id="subject1MCQ"></span></td>
+                                    <td><span id="subject1Practical"></span></td>
+                                    <td><span id="subject1Total"></span></td>
+                                    <td><span id="subject1Highest"></span></td>
+                                    <td><span id="subject1LetterGrade"></span></td>
+                                    <td><span id="subject1GradePoint"></span></td>
+                                </tr>  
                             </tbody>
                         </table>
+
+                        <div id="totalMarksContainer">
+                            <label for="monthlyExamTotal">Total of Monthly Exam:</label>
+                            <span id="monthlyExamTotal"></span>
+                            
+                            <label for="monthlyExamPercentage">20% of Monthly Exam:</label>
+                            <span id="monthlyExamPercentage"></span>
+                            
+                            <label for="gpaWithoutAdditional">GPA without Additional Subject:</label>
+                            <span id="gpaWithoutAdditional"></span>
+                            
+                            <label for="totalGpa">GPA with Additional Subject:</label>
+                            <span id="totalGpa"></span>
+                            
+                            <label for="comment">Comment:</label>
+                            <p id="comment"></p>
+                            
+                            <label for="totalMarks">Total Marks:</label>
+                            <span id="totalMarks"></span>
+                            
+                            <label for="procuredMarks">Procured Marks:</label>
+                            <span id="procuredMarks"></span>
+                        </div>
+
                     </div>
                 </div>
             </section>
