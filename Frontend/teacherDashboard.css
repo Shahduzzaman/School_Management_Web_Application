@@ -171,14 +171,15 @@ form#resultTableForm table th {
     grid-template-columns: 1fr 1fr; 
     gap: 10px;                      
     max-width: 800px;                
-    margin: left;          
+    margin: left;   
+    margin-bottom: 8px;       
   }
   
-  #totalMarksContainer label {
+#totalMarksContainer label {
     grid-column: span 1; 
     text-align: right;   
     padding-right: 5px;     
-  }
+}
   
 #totalMarksContainer input,
 #totalMarksContainer textarea {
@@ -213,12 +214,6 @@ button[type="submit"]:focus {
     outline: none; 
     box-shadow: 0 0 5px rgba(0, 128, 0, 0.5); 
 }
-
-
-
-
-
-
 .profile-picture-container {
     display: flex;
     justify-content: left;
