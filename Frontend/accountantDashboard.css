@@ -48,13 +48,21 @@ body {
     margin: 0 1rem;
 }
 .sidebar li a {
+    display: block;
+    padding: 0.8rem 1rem;
+    background-color: #dab0b000; /* Box background color */
     color: white;
     text-decoration: none;
     font-weight: bold;
+    text-align: center;
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid transparent; /* Optional border */
+    transition: background-color 0.3s, color 0.3s;
 }
 .sidebar li a:hover {
-    color: blue;
-    text-decoration: underline;
+    background-color: #555; /* Darker shade on hover */
+    color: lightblue; /* Text color change on hover */
+    border-color: blue; /* Optional hover border color */
 }
 .content {
     padding: 2rem;
