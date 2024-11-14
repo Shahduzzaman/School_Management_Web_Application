@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 html, body {
-    height: 100%;
+    height: 98%;
     width: 100%;
     overflow-x: hidden;
 }
@@ -18,12 +18,6 @@ body {
     flex: 1;
     width: 100%;
 }
-.logo img {
-    width: 40px;
-    height: auto;
-    margin-right: 1rem;
-    vertical-align: middle;
-}
 .sidebar {
     display: flex;
     align-items: center;
@@ -31,6 +25,12 @@ body {
     padding: 1rem;
     color: #fff;
     width: 100%;
+}
+.logo img {
+    width: 40px;
+    height: auto;
+    margin-right: 1rem;
+    vertical-align: middle;
 }
 .sidebar h2 {
     margin: 0;
@@ -71,154 +71,18 @@ body {
 .section h3 {
     margin-bottom: 1rem;
 }
-.calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 0.5rem;
-    padding: 1rem;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-}
-.day-label {
-    font-weight: bold;
-    text-align: center;
-    padding: 0.5rem;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-}
-.day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    border-radius: 4px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.present {
-    background-color: #4CAF50; 
-}
-.absent {
-    background-color: #FF5252;
-}
-.late {
-    background-color: #90EE90;
-}
-.day:hover {
-    opacity: 0.8;
-}
-#myProfile {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.profile-picture-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-#profile-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #ddd;
-    object-fit: cover;
-}
-
-.profile-info {
-    text-align: left;
-    margin: 0 auto 30px;
-    max-width: 400px;
-}
-
-.profile-item {
-    font-size: 1rem;
-    color: #333;
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.change-password-section {
-    max-width: 400px;
-    margin: 20px auto 0;
-    text-align: left;
-}
-
-.change-password-section h4 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.change-password-section label {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.change-password-section input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.change-password-section button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.change-password-section button:hover {
-    background-color: #45a049;
-}
 #fees {
     margin-top: 20px;
 }
-
 #fees h3 {
     font-size: 1.8rem;
     color: #333;
     margin-bottom: 5px;
 }
-
 #fees p {
     font-size: 1rem;
     color: #666;
     margin-bottom: 15px;
-}
-
-#fees-history-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#fees-history-table th, #fees-history-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-#fees-history-table th {
-    background-color: #f8f8f8;
-    color: #333;
-}
-
-#fees-history-table tr:nth-child(even) {
-    background-color: #f2f2f2;
 }
 .user-id-input {
     margin-bottom: 20px; 
@@ -246,4 +110,117 @@ body {
 }
 .user-id-input button:hover {
     background-color: #620eeb;
+}
+#fees-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#fees-history-table th, #fees-history-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+#fees-history-table th {
+    background-color: #f8f8f8;
+    color: #333;
+}
+#fees-history-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#fees-history-table input[type="text"],
+#fees-history-table input[type="number"],
+#fees-history-table input[type="date"],
+#fees table select {
+    width: 100%;          
+    padding: 8px;          
+    box-sizing: border-box;
+    font-size: 1rem;       
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+}
+#fees table td {
+    padding: 8px;
+}
+.submitButton {
+    text-align: center; 
+    margin-top: 20px; 
+}
+.submitButton button {
+    background-color: #4CAF50;
+    color: #fff; 
+    padding: 10px 70px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px;
+    transition: background-color 0.3s ease; 
+}
+.submitButton button:hover {
+    background-color: #0056b3; 
+}
+#myProfile {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+.profile-picture-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+    object-fit: cover;
+}
+.profile-info {
+    text-align: left;
+    margin: 0 auto 30px;
+    max-width: 400px;
+}
+.profile-item {
+    font-size: 1rem;
+    color: #333;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+.change-password-section {
+    max-width: 400px;
+    margin: 20px auto 0;
+    text-align: left;
+}
+.change-password-section h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+.change-password-section label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+.change-password-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.change-password-section button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.change-password-section button:hover {
+    background-color: #0056b3;
 }

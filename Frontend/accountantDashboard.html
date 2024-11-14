@@ -26,21 +26,191 @@
                 <div class="user-id-input">
                     <label for="student-user-id">Enter User ID:</label>
                     <input type="text" id="student-user-id" placeholder="Enter User ID">
-                    <button onclick="loadUserFees()">Load Fees</button>
+                    <button type="apply">Apply</button>
                 </div>
-                <p id="loading-message" style="display: none;">Loading data...</p>
                 <table id="fees-history-table">
                     <thead>
                         <tr>
                             <th>Category</th>
                             <th>Amount</th>
-                            <th>Status</th>
+                            <th>Payment Status</th>
                             <th>Payment Date</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="fees-history-tbody"></tbody>
+                    <tbody id="fees-history-tbody">
+                        <tr>
+                            <td><input type="text" name="category-1" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-1" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-1">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-1"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-2" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-2" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-2">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-2"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-3" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-3" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-3">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-3"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-4" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-4" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-4">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-4"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-5" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-5" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-5">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-5"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-6" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-6" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-6">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-6"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-7" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-7" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-7">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-7"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-8" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-8" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-8">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-8"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-9" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-9" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-9">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-9"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-10" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-10" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-10">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-10"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-11" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-11" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-11">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-11"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-12" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-12" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-12">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-12"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-13" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-13" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-13">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-13"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="category-14" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-14" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-14">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-14"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><input type="text" name="category-15" placeholder="Enter category"></td>
+                            <td><input type="number" name="amount-15" placeholder="Enter amount"></td>
+                            <td>
+                                <select name="status-15">
+                                    <option value="unpaid">Unpaid</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                            </td>
+                            <td><input type="date" name="payment-date-15"></td>
+                        </tr>
+                        
+                        
+                    </tbody>
                 </table>
+                <div class="submitButton">
+                    <button type="submit">Submit</button>
+                </div>
             </section>
             
             
@@ -72,8 +242,9 @@
             
                         <label for="re-enter-password">Re-enter New Password</label>
                         <input type="password" id="re-enter-password" required>
-            
-                        <button type="submit">Change Password</button>
+                        <div class="submitButton">
+                            <button type="submit">Change Password</button>
+                        </div>
                     </form>
                 </div>
             </section>
