@@ -250,3 +250,92 @@ button[type="submit"]:hover, button:hover {
     height: 100px;
     resize: vertical;
 }
+
+#fees {
+    margin-top: 20px;
+}
+#fees h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 5px;
+}
+#fees p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+.user-id-input {
+    margin-bottom: 20px; 
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#student-user-id {
+    width: 300px; 
+    padding: 7px; 
+    font-size: 16px; 
+    margin: 10px 0; 
+    border-radius: 4px; 
+    border: 1px solid #ccc;
+}
+.user-id-input button {
+    padding: 7px 20px; 
+    font-size: 16px; 
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.user-id-input button:hover {
+    background-color: #620eeb;
+}
+#fees-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+#fees-history-table th, #fees-history-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+#fees-history-table th {
+    background-color: #f8f8f8;
+    color: #333;
+}
+#fees-history-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+#fees-history-table input[type="text"],
+#fees-history-table input[type="number"],
+#fees-history-table input[type="date"],
+#fees-history-table select {
+    width: 100%;          
+    padding: 8px;          
+    box-sizing: border-box;
+    font-size: 1rem;       
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+}
+#fees table td {
+    padding: 8px;
+}
+.submitButton {
+    text-align: center; 
+    margin-top: 20px; 
+}
+.submitButton button {
+    background-color: #4CAF50;
+    color: #fff; 
+    padding: 10px 70px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px;
+    transition: background-color 0.3s ease; 
+}
+.submitButton button:hover {
+    background-color: #0056b3; 
+}
