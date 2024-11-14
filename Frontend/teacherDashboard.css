@@ -111,7 +111,7 @@ button[type="submit"], button {
 }
 
 button[type="submit"]:hover, button:hover {
-    background-color: #45a049;
+    background-color: #4768d6;
 }
 form#resultTableForm {
     display: flex;
@@ -132,38 +132,67 @@ form#resultTableForm  table td input[type="number"] {
 form#resultTableForm table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 2%;
+    margin-top: -1%;
 }
 form#resultTableForm table th {
     font-weight: bold;
     background-color: #f4f4f4;
 }
-.studentInfo {
-    padding: auto;
-    margin-bottom: 5%;
+#formContainer {
+    display: grid;
+    gap: 15px; 
+    max-width: 600px;       
+    margin: auto;               
+  }
+  
+#formContainer label,
+#formContainer select,
+#formContainer input,
+#formContainer button,
+#formContainer .profile-item {
+    margin-bottom: 5px;
+    font-size: 15px;  
 }
+  
+#studentIdContainer {
+    display: flex;
+    gap: 10px;
+}
+  
+#studentInfo .profile-item {
+    margin-bottom: 8px;
+    font-size: 15px;         
+}
+  
 
 #totalMarksContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem; 
-    margin-top: 1rem; 
-}
-#totalMarksContainer label {
-    font-weight: bold;
-    color: #333;
-    font-size: 0.9rem;
-    width: 100%; 
-    margin-bottom: 0.5rem;
-}
-#totalMarksContainer input[type="number"],
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;                      
+    max-width: 800px;                
+    margin: left;          
+  }
+  
+  #totalMarksContainer label {
+    grid-column: span 1; 
+    text-align: right;   
+    padding-right: 5px;     
+  }
+  
+#totalMarksContainer input,
 #totalMarksContainer textarea {
-    width: 100%; 
-    padding: 0.2rem;
-    font-size: 0.85rem; 
-    border: 1px solid #ccc;
-    border-radius: 3px; 
-    margin-bottom: 0.2rem; 
+  grid-column: span 1;     
+  width: 50%;                 
+  padding: 8px;             
+  font-size: 1.1em;           
+  box-sizing: border-box;      
 }
+  
+  #comment {
+    grid-column: span 2;        
+  }
+  
 button[type="submit"] {
     background-color: #4CAF50;
     color: white; 
@@ -178,7 +207,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049; 
+    background-color: #4768d6; 
 }
 button[type="submit"]:focus {
     outline: none; 
@@ -254,3 +283,9 @@ button[type="submit"]:focus {
 #change-password-form button:hover {
     background-color: #45a049;
 }
+.horizontal-scroll {
+    width: 100%;               /* Full width of the viewport or parent container */
+    overflow-x: auto;           /* Enables horizontal scrolling */
+    white-space: nowrap;        /* Prevents line breaks within children, creating a single row */
+    border: 1px solid #ccc;     /* Optional: Add a border for visual clarity */
+  }
