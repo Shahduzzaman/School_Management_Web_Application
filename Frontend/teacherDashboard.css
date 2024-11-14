@@ -4,21 +4,21 @@
     box-sizing: border-box;
 }
 html, body {
-    height: 99%;
+    height: 98%;
     width: 100%;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
+    overflow-x: auto;
 }
 body {
     display: flex;
     flex-direction: column;
-    background-color: #f9f9f9;
 }
 .dashboard {
     display: flex;
     flex-direction: column;
     flex: 1;
     width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 .sidebar {
     display: flex;
@@ -55,15 +55,21 @@ body {
 }
 
 .sidebar li a {
+    display: block;
+    padding: 0.8rem 1rem;
+    background-color: #dab0b000; 
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    text-align: center;
+    border-radius: 8px; 
+    border: 1px solid transparent; 
+    transition: background-color 0.3s, color 0.3s;
 }
-
 .sidebar li a:hover {
-    color: #87CEEB;
-    text-decoration: underline;
+    background-color: #555; 
+    color: lightblue; 
+    border-color: blue; 
 }
 .content {
     padding: 2rem;

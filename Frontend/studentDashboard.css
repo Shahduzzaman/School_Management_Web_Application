@@ -6,18 +6,19 @@
 html, body {
     height: 98%;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 body {
     display: flex;
     flex-direction: column;
-
 }
 .dashboard {
     display: flex;
     flex-direction: column;
     flex: 1;
     width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 .logo img {
     width: 40px;

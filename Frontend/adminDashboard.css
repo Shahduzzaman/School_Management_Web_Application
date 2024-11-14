@@ -6,7 +6,7 @@
 html, body {
     height: 98%;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 body {
     display: flex;
@@ -17,6 +17,8 @@ body {
     flex-direction: column;
     flex: 1;
     width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 .sidebar {
     display: flex;
