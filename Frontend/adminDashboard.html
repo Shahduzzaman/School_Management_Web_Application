@@ -15,10 +15,10 @@
             <h2>Admin Dashboard</h2>
             <ul>
                 <li><a href="#" onclick="showSection('createAccount')">Create User</a></li>
+                <li><a href="#" onclick="showSection('createClass')">Create Class</a></li>
                 <li><a href="#" onclick="showSection('attendance')">Attendance</a></li>
                 <li><a href="#" onclick="showSection('feesPayments')">Payments</a></li>
                 <li><a href="#" onclick="showSection('reportsAnalytics')">Reports</a></li>
-                <li><a href="#" onclick="showSection('leaveManagement')">Leave Management</a></li>
                 <li><a href="#" onclick="showSection('profile')">My Profile</a></li>
                 <li><a href="#" onclick="logOut()">Log Out</a></li>
             </ul>
@@ -123,191 +123,57 @@
                 <h3>Student Tuition Fees</h3>
                 <div class="user-id-input">
                     <label for="student-user-id">Enter User ID:</label>
-                    <input type="text" id="student-user-id" placeholder="Enter User ID">
-                    <button type="apply">Apply</button>
+                    <input type="text" id="student-user-id" placeholder="Enter User ID" class="input-box">
                 </div>
-                <table id="fees-history-table">
-                    <thead>
-                        <tr>
-                            <th>Category</th>
-                            <th>Amount</th>
-                            <th>Payment Status</th>
-                            <th>Payment Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="fees-history-tbody">
-                        <tr>
-                            <td><input type="text" name="category-1" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-1" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-1">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-1"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-2" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-2" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-2">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-2"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-3" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-3" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-3">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-3"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-4" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-4" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-4">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-4"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-5" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-5" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-5">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-5"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-6" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-6" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-6">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-6"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-7" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-7" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-7">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-7"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-8" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-8" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-8">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-8"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-9" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-9" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-9">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-9"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-10" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-10" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-10">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-10"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-11" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-11" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-11">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-11"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-12" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-12" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-12">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-12"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-13" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-13" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-13">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-13"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="category-14" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-14" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-14">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-14"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td><input type="text" name="category-15" placeholder="Enter category"></td>
-                            <td><input type="number" name="amount-15" placeholder="Enter amount"></td>
-                            <td>
-                                <select name="status-15">
-                                    <option value="unpaid">Unpaid</option>
-                                    <option value="paid">Paid</option>
-                                </select>
-                            </td>
-                            <td><input type="date" name="payment-date-15"></td>
-                        </tr>
-                        
-                        
-                    </tbody>
-                </table>
-                <div class="submitButton">
-                    <button type="submit">Submit</button>
+                <div class="bill-category-input">
+                    <label for="bill-category">Select Bill Category:</label>
+                    <select id="bill-category" class="dropdown">
+                        <option value="" disabled selected>Select Category</option>
+                        <option value="admission-fee">Admission Fee</option>
+                        <option value="session-fee">Session Fee</option>
+                        <option value="january-tuition-fee">January-Tuition Fee</option>
+                        <option value="february-tuition-fee">February-Tuition Fee</option>
+                        <option value="march-tuition-fee">March-Tuition Fee</option>
+                        <option value="april-tuition-fee">April-Tuition Fee</option>
+                        <option value="may-tuition-fee">May-Tuition Fee</option>
+                        <option value="june-tuition-fee">June-Tuition Fee</option>
+                        <option value="july-tuition-fee">July-Tuition Fee</option>
+                        <option value="august-tuition-fee">August-Tuition Fee</option>
+                        <option value="september-tuition-fee">September-Tuition Fee</option>
+                        <option value="october-tuition-fee">October-Tuition Fee</option>
+                        <option value="november-tuition-fee">November-Tuition Fee</option>
+                        <option value="december-tuition-fee">December-Tuition Fee</option>
+                        <option value="1st-term-exam-fee">1st Term Exam Fee</option>
+                        <option value="2nd-term-exam-fee">2nd Term Exam Fee</option>
+                        <option value="annual-exam-fee">Annual Exam Fee</option>
+                        <option value="transport-fee">Transport Fee</option>
+                    </select>
+                    
+                </div>
+                <button id="search-button" type="button" class="button">Search</button>
+        
+                <div id="payment-status-container" class="status-container hidden">
+                    <p id="payment-status-message" class="status-message"></p>
+                </div>
+        
+                <div id="payment-details-form" class="payment-form hidden">
+                    <h4>Payment Details</h4>
+                    <div class="payment-input">
+                        <label for="payment-amount">Amount:</label>
+                        <input type="number" id="payment-amount" placeholder="Enter amount" class="input-box">
+                    </div>
+                    <div class="payment-status-input">
+                        <label for="payment-status">Payment Status:</label>
+                        <select id="payment-status" class="dropdown">
+                            <option value="unpaid">Unpaid</option>
+                            <option value="paid">Paid</option>
+                        </select>
+                    </div>
+                    <div class="payment-date-input">
+                        <label for="payment-date">Payment Date:</label>
+                        <input type="date" id="payment-date" class="input-box">
+                    </div>
+                    <button id="submit-button" type="submit" class="button">Submit</button>
                 </div>
             </section>
 
@@ -318,17 +184,42 @@
 
             <section id="reportsAnalytics" class="section">
                 <h3>Reports & Analytics</h3>
-                <p>Generate reports and view analytics on attendance and performance.</p>
-            </section>
+                <p>Generate reports and view analytics on payments.</p>
+                <div class="report-container">
+                    <div class="date-picker-container">
+                        <label for="start-date">Start Date:</label>
+                        <input type="date" id="start-date" class="input-box">
+                    </div>
+                    <div class="date-picker-container">
+                        <label for="end-date">End Date:</label>
+                        <input type="date" id="end-date" class="input-box">
+                    </div>
+                    <button id="apply-button" type="button" class="button">Apply</button>
+                </div>
+                <div id="report-results" class="report-results hidden">
+                    <h4>Payment Report</h4>
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>Student User ID</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-table-body">
 
+                        </tbody>
+                    </table>
+                    <div class="report-summary">
+                        <p><strong>Total Records:</strong> <span id="total-records">0</span></p>
+                        <p><strong>Total Amount:</strong> $<span id="total-amount">0.00</span></p>
+                    </div>
+                </div>
+            </section>
+            
             <section id="leaveManagement" class="section">
                 <h3>Leave Management</h3>
                 <p>Approve or deny leave requests from teachers and students.</p>
-            </section>
-
-            <section id="systemSettings" class="section">
-                <h3>System Settings</h3>
-                <p>Configure system settings, notifications, and backup options.</p>
             </section>
 
             <section id="profile" class="section">
