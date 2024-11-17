@@ -252,10 +252,6 @@ button[type="submit"]:hover, button:hover {
 #feesPayments .button:hover {
     background-color: #4768d6;
 }
-
-.hidden {
-    display: none;
-}
 .status-container {
     margin-top: 20px;
 }
@@ -270,7 +266,6 @@ button[type="submit"]:hover, button:hover {
     background-color: #f4f4f4;
 }
 
-/* Reports & Analytics */
 #reportsAnalytics {
     max-width: 800px;
     margin: 0 auto;
@@ -312,7 +307,9 @@ button[type="submit"]:hover, button:hover {
     font-size: 16px;
     cursor: pointer;
 }
-
+.hidden {
+    display: none;
+}
 #apply-button:hover {
     background-color: #4768d6;
 }

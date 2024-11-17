@@ -62,7 +62,7 @@ body {
     padding: 2rem;
     margin-top: 1rem;
     flex: 1;
-    width: 100%;
+    width: 100%; 
 }
 .section {
     display: none;
@@ -73,121 +73,9 @@ body {
 .section h3 {
     margin-bottom: 1rem;
 }
-.calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 0.5rem;
-    padding: 1rem;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-}
-.day-label {
-    font-weight: bold;
-    text-align: center;
-    padding: 0.5rem;
-    background-color: #e0e0e0;
-    border-radius: 4px;
-}
-.day {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    border-radius: 4px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
 
-.present {
-    background-color: #4CAF50; 
-}
-.absent {
-    background-color: #FF5252;
-}
-.late {
-    background-color: #90EE90;
-}
-.day:hover {
-    opacity: 0.8;
-}
-/* Profile Section Styling */
-#myProfile {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
 
-.profile-picture-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
 
-#profile-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid #ddd;
-    object-fit: cover;
-}
-
-.profile-info {
-    text-align: left;
-    margin: 0 auto 30px;
-    max-width: 400px;
-}
-
-.profile-item {
-    font-size: 1rem;
-    color: #333;
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.change-password-section {
-    max-width: 400px;
-    margin: 20px auto 0;
-    text-align: left;
-}
-
-.change-password-section h4 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.change-password-section label {
-    font-size: 0.9rem;
-    color: #555;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.change-password-section input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.change-password-section button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.change-password-section button:hover {
-    background-color: #45a049;
-}
 
 .attendance-table-container {
     overflow-x: auto;
@@ -219,7 +107,10 @@ body {
     width: 16px;
     height: 16px;
 }
-/* Basic form styling */
+
+
+
+
 #createAccountForm {
     max-width: 600px;
     margin: 0 auto;
@@ -230,7 +121,6 @@ body {
     display: flex;
     flex-direction: column; 
     gap: 5px; 
-    
 }
 
 #createAccountForm label {
@@ -256,7 +146,6 @@ body {
     color: white;
     border: none;
     cursor: pointer;
-    float: none;
 }
 
 #createAccountForm button:hover {
@@ -270,4 +159,152 @@ body {
 #createAccountForm textarea {
     height: 100px;
     resize: vertical;
+}
+
+
+
+
+#myProfile {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-picture-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#profile-picture,
+#student-profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+    object-fit: cover;
+}
+.profile-info {
+    text-align: left;
+    margin: 0 auto 30px;
+    max-width: 400px;
+}
+.profile-item {
+    font-size: 1rem;
+    color: #333;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+.change-password-section {
+    max-width: 400px;
+    margin: 20px auto 0;
+    text-align: left;
+}
+.change-password-section h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+.change-password-section label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+.change-password-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.change-password-section button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+}
+.change-password-section button:hover {
+    background-color: #0056b3;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333;
+}
+
+
+
+
+
+#studentIdContainer {
+    display: flex;
+    gap: 10px;
+}
+
+#studentInfo .profile-item {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+#totalMarksContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;                      
+    max-width: 800px;                
+    margin: left;   
+    margin-bottom: 8px;       
+}
+
+#totalMarksContainer label {
+    grid-column: span 1; 
+    text-align: right;   
+    padding-right: 5px;     
+}
+
+#totalMarksContainer input,
+#totalMarksContainer textarea {
+    grid-column: span 1;     
+    width: 50%;                 
+    padding: 8px;             
+    font-size: 1.1em;           
+    box-sizing: border-box;      
+}
+
+#comment {
+    grid-column: span 2;        
+}
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white; 
+    padding: 0.7rem 1.5rem; 
+    font-size: 1rem;
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    width: 100%; 
+    margin-top: 1rem; 
+}
+button[type="submit"]:hover {
+    background-color: #4768d6; 
 }

@@ -15,6 +15,7 @@
             <h2>Accountant Dashboard</h2>
             <ul>
                 <li><a href="#" onclick="showSection('fees')">Tuition Fees</a></li>
+                <li><a href="#" onclick="showSection('reportsAnalytics')">Reports</a></li>
                 <li><a href="#" onclick="showSection('myProfile')">My Profile</a></li>
                 <li><a href="#" onclick="logOut()">Log Out</a></li>
             </ul>
@@ -210,6 +211,41 @@
                 </table>
                 <div class="submitButton">
                     <button type="submit">Submit</button>
+                </div>
+            </section>
+
+            <section id="reportsAnalytics" class="section">
+                <h3>Reports & Analytics</h3>
+                <p>Generate reports and view analytics on payments.</p>
+                <div class="report-container">
+                    <div class="date-picker-container">
+                        <label for="start-date">Start Date:</label>
+                        <input type="date" id="start-date" class="input-box">
+                    </div>
+                    <div class="date-picker-container">
+                        <label for="end-date">End Date:</label>
+                        <input type="date" id="end-date" class="input-box">
+                    </div>
+                    <button id="apply-button" type="button" class="button">Apply</button>
+                </div>
+                <div id="report-results" class="report-results hidden">
+                    <h4>Payment Report</h4>
+                    <table class="report-table">
+                        <thead>
+                            <tr>
+                                <th>Student User ID</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody id="report-table-body">
+
+                        </tbody>
+                    </table>
+                    <div class="report-summary">
+                        <p><strong>Total Records:</strong> <span id="total-records">0</span></p>
+                        <p><strong>Total Amount:</strong> <span id="total-amount">0.00</span></p>
+                    </div>
                 </div>
             </section>
             
