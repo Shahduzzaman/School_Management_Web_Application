@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+p {
+    text-align: center;
+    color: #555;
+}
+
+section {
+    padding: 40px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Navigation Bar */
+nav {
+    background: #b60707;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background: rgb(9, 2, 51);
+    color: #fff; /* Default text color in footer is white */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+}
+
+.footer-column p {
+    color: white; /* Explicitly sets p tags to white */
+    margin: 5px 0; /* Optional: Adjust spacing as needed */
+}
+
+.footer-column a {
+    color: #4CAF50; /* Maintains a distinct color for links */
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
