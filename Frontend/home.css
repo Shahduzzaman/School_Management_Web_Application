@@ -25,11 +25,24 @@ section {
 nav {
     background: #b60707;
     color: #fff;
-    padding: 10px 0;
+    padding: 5px 10px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    width: 95%;
+}
+
+.logo {
+    height: 45px; /* Adjust height as needed */
+    margin-right: 20px;
 }
 
 nav ul {
@@ -37,22 +50,26 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex: 1; /* Ensures ul spans the available space */
+    justify-content: flex-end; /* Aligns links to the right */
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 15px; /* Consistent spacing between links */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    padding: 5px 10px; /* Adds clickable padding for better UX */
+    transition: color 0.3s;
 }
 
 nav ul li a:hover {
     text-decoration: underline;
 }
+
 
 /* Footer */
 footer {
