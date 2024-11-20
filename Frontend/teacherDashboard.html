@@ -62,9 +62,41 @@
             </section>
             
             <section id="classwork" class="section">
-                <h3>Classwork & Assignments</h3>
-                <p>Update and manage classwork and assignments.</p>
+                <div class="classwork-container">
+                    <h3>Classwork & Assignments</h3>
+                    <p>Update and manage classwork and assignments.</p>
+                    <form id="classworkForm">
+                        <div class="form-group">
+                            <label for="classSelect">Select Class:</label>
+                            <select id="classSelect" name="class">
+                                <option value="" disabled selected>Select Class</option>
+                                <option value="class1">Class 1</option>
+                                <option value="class2">Class 2</option>
+                                <option value="class3">Class 3</option>
+                                <option value="class4">Class 4</option>
+                                <option value="class5">Class 5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subjectSelect">Select Subject:</label>
+                            <select id="subjectSelect" name="subject">
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="math">Mathematics</option>
+                                <option value="science">Science</option>
+                                <option value="english">English</option>
+                                <option value="history">History</option>
+                                <option value="geography">Geography</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="lessonInput">Lesson & Homework:</label>
+                            <input type="text" id="lessonInput" name="lesson" placeholder="Enter lesson and homework details">
+                        </div>
+                        <button type="submit" id="postButton">Post</button>
+                    </form>
+                </div>
             </section>
+            
             
             <section id="results" class="section">
                 <div class="results-container">
