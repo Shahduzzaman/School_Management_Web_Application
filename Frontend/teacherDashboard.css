@@ -120,106 +120,78 @@ button[type="submit"], button {
 button[type="submit"]:hover, button:hover {
     background-color: #4768d6;
 }
-form#resultTableForm {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+
+\\Result Section\\
+
+#results {
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
-form#resultTableForm label {
+
+#results .results-container {
+    max-width: 600px;
+    margin: auto;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#results h2, 
+#results h4 {
+    text-align: center;
     color: #333;
 }
-form#resultTableForm table td input[type="text"],
-form#resultTableForm  table td input[type="number"] {
-    width: 100%; 
-    padding: 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-bottom: 0.5rem;
-}
-form#resultTableForm table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 2%;
-    margin-top: -1%;
-}
-form#resultTableForm table th {
-    font-weight: bold;
-    background-color: #f4f4f4;
-}
-#formContainer {
-    display: grid;
-    gap: 15px; 
-    max-width: 600px;       
-    margin: auto;               
-  }
-  
-#formContainer label,
-#formContainer select,
-#formContainer input,
-#formContainer button,
-#formContainer .profile-item {
-    margin-bottom: 5px;
-    font-size: 15px;  
-}
-  
-#studentIdContainer {
+
+#results .form-group {
+    margin-bottom: 15px;
     display: flex;
-    gap: 10px;
-}
-  
-#studentInfo .profile-item {
-    margin-bottom: 8px;
-    font-size: 15px;         
-}
-  
-
-#totalMarksContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 10px;                      
-    max-width: 800px;                
-    margin: left;   
-    margin-bottom: 8px;       
-  }
-  
-#totalMarksContainer label {
-    grid-column: span 1; 
-    text-align: right;   
-    padding-right: 5px;     
-}
-  
-#totalMarksContainer input,
-#totalMarksContainer textarea {
-  grid-column: span 1;     
-  width: 50%;                 
-  padding: 8px;             
-  font-size: 1.1em;           
-  box-sizing: border-box;      
-}
-  
-  #comment {
-    grid-column: span 2;        
-  }
-  
-button[type="submit"] {
-    background-color: #4CAF50;
-    color: white; 
-    padding: 0.7rem 1.5rem; 
-    font-size: 1rem;
-    border: none; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    transition: background-color 0.3s ease; 
-    width: 100%; 
-    margin-top: 1rem; 
+    flex-direction: column;
 }
 
-button[type="submit"]:hover {
-    background-color: #4768d6; 
+#results label {
+    margin-bottom: 5px;
+    font-weight: bold;
 }
-button[type="submit"]:focus {
-    outline: none; 
-    box-shadow: 0 0 5px rgba(0, 128, 0, 0.5); 
+
+#results input, 
+#results select, 
+#results button {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#results button {
+    margin-top: 10px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#results button:hover {
+    background: #0056b3;
+}
+
+#results .student-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+#results .result-entry {
+    margin-top: 20px;
+}
+
+#results #submitResults {
+    background: #4CAF50;
+    color: #fff;
+}
+
+#results #submitResults:hover {
+    background: #0056b3;
 }
 
 
