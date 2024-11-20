@@ -94,6 +94,8 @@ body {
 
 \\classwork\\
 
+
+
 #classwork {
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -150,7 +152,7 @@ body {
 }
 
 #classwork button {
-    background: #007bff;
+    background: #4CAF50;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -158,7 +160,7 @@ body {
 }
 
 #classwork button:hover {
-    background: #0056b3;
+    background: #4768d6;
 }
 
 
