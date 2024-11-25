@@ -14,17 +14,39 @@
             </div>
             <h2>Admin Dashboard</h2>
             <ul>
-                <li><a href="#" onclick="showSection('createAccount')">Create User</a></li>
-                <li><a href="#" onclick="showSection('deleteAccount')">Delete User</a></li>
-                <li><a href="#" onclick="showSection('createClass')">Create Class</a></li>
-                <li><a href="#" onclick="showSection('deleteClass')">Delete Class</a></li>
+                <li class="dropdown">
+                    <a href="#">User</a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="showSection('createAccount')">Create User</a></li>
+                        <li><a href="#" onclick="showSection('deleteAccount')">Delete User</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Class</a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="showSection('createClass')">Create Class</a></li>
+                        <li><a href="#" onclick="showSection('deleteClass')">Delete Class</a></li>
+                    </ul>
+                </li>
                 <li><a href="#" onclick="showSection('attendance')">Attendance</a></li>
-                <li><a href="#" onclick="showSection('feesPayments')">Payments</a></li>
-                <li><a href="#" onclick="showSection('reportsAnalytics')">Reports</a></li>
-                <li><a href="#" onclick="showSection('profile')">My Profile</a></li>
+                <li class="dropdown">
+                    <a href="#">Payment</a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="showSection('feesPayments')">Submit Payment</a></li>
+                        <li><a href="#" onclick="showSection('reportsAnalytics')">Payment Report</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Profile</a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="showSection('profile')">My Profile</a></li>
+                        <li><a href="#" onclick="showSection('viewProfile')">View Profile</a></li>
+                    </ul>
+                </li>
                 <li><a href="#" onclick="logOut()">Log Out</a></li>
             </ul>
         </nav>
+        
         
         <div class="content" id="content">
             <section id="overview" class="section">
