@@ -70,6 +70,76 @@ nav ul li a:hover {
 }
 
 
+#administration {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+#administration h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#administration p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px;
+    scroll-behavior: smooth;
+    margin: 0 auto;
+}
+
+.card-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.card-container::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
+
+.card-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+.card {
+    flex: 0 0 250px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    padding: 20px;
+}
+.card img {
+    width: 100%;
+    height: 250px; 
+    object-fit: fill;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 /* Footer */
 footer {
     background: rgb(9, 2, 51);
