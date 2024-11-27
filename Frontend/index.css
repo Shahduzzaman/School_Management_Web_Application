@@ -140,6 +140,54 @@ nav ul li a:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+
+#rules {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+#rules .card {
+    width: 30%;
+    margin-right: 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#rules .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+#rules .card-image {
+    width: 70%;
+    height: 70%;
+    border-radius: 5px;
+}
+
+#rules .card h2 {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+#rules .content {
+    width: 65%;
+    font-family: Arial, sans-serif;
+    color: #555;
+}
+
+#rules .content p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+
 /* Footer */
 footer {
     background: rgb(9, 2, 51);
