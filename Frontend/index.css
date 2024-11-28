@@ -68,39 +68,38 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: underline;
 }
-/* Styling specific to #results Carousel */
-#results {
+/* Shared Carousel Styling */
+.carousel {
     text-align: center;
     position: relative;
 }
 
-#results .carousel-container {
+.carousel .carousel-container {
     position: relative;
     width: 60%;
     margin: auto;
     overflow: hidden;
 }
 
-#results .carousel-images {
+.carousel .carousel-images {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-#results .card-image {
+.carousel .card-image {
     width: 100%; 
-    height: 300px; 
-    object-fit: cover; 
+    height: 400px; 
+    object-fit: cover;
     flex-shrink: 0;
     display: none;
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
 }
 
-#results .card-image.active {
+.carousel .card-image.active {
     display: block;
 }
 
-
-#results .arrow {
+.carousel .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -114,17 +113,19 @@ nav ul li a:hover {
     border-radius: 50%;
 }
 
-#results .left-arrow {
+.carousel .left-arrow {
     left: 10px;
 }
 
-#results .right-arrow {
+.carousel .right-arrow {
     right: 10px;
 }
 
-#results .arrow:hover {
+.carousel .arrow:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+
 
 
 #administration {
