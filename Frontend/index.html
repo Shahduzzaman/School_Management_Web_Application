@@ -14,6 +14,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#admission">Admission</a></li>
                 <li><a href="#administration">Administration</a></li>
+                <li><a href="#routine">Routine</a></li>
                 <li><a href="#results">Results</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#rules">Rules & Regulations</a></li>
@@ -80,9 +81,23 @@
         </div>
     </section>
 
-    <section id="results">
+    <section id="routine">
+        <h2>Routine</h2>
+        <p>Access our academic routines here.</p>
+    </section>
+
+    <section id="results" class="carousel">
         <h2>Results</h2>
         <p>Access our academic and extracurricular achievements here.</p>
+        <div class="carousel-container">
+            <button class="arrow left-arrow" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="carousel-images">
+                <img src="images/1.jpg" alt="TESL Logo 1" class="card-image active">
+                <img src="images/2.jpg" alt="TESL Logo 2" class="card-image">
+                <img src="images/3.jpg" alt="TESL Logo 3" class="card-image">
+            </div>
+            <button class="arrow right-arrow" onclick="moveSlide(1)">&#10095;</button>
+        </div>
     </section>
 
     <section id="gallery">
@@ -100,7 +115,7 @@
             <p>
                 I, the student of TESL, is pledging that it shall be the aim to keep the name and fame of TESL high up through flourishing my latent talent with the deep attention, self-confidence, courage, determination, honesty, punctuality, and hard work.
                 Pledging that it shall be the sacred duties to show punctuality in the rules and regulation of TESL.
-                Oh! God, bless me to fulfill the cherished dream of my father & mother and in return to give them better service at their old age, to mankind and to our motherland. (Amin)
+                Oh! God, bless me to fulfill the cherished dream of my father & mother and in return to give them better service at their old age, to mankind and to our motherland -Amin.
             </p>
         </div>
     </section>
@@ -121,5 +136,6 @@
             <p>Email: teslschool23@gmail.com</p>
         </div>
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>
