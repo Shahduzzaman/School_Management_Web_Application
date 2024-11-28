@@ -92,7 +92,7 @@ nav ul li a:hover {
     object-fit: cover;
     flex-shrink: 5;
     display: none;
-    background-color: #f0f0f0;
+    background-color: #972121;
 }
 
 .carousel .card-image.active {
