@@ -129,21 +129,48 @@ nav ul li a:hover {
 
 
 #administration {
-    text-align: center;
     padding: 20px;
-    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
 }
 
-#administration h2 {
-    font-size: 2rem;
+.card-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.card {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+}
+
+.card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     margin-bottom: 10px;
 }
 
-#administration p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: #666;
+.card-speech {
+    flex: 2;
+    padding: 20px;
 }
+
+.card-speech h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.card-speech p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
 
 /* Card Container */
 .card-container {
