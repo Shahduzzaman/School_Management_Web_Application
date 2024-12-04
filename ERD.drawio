@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" scale="1" border="0" version="25.0.2">
   <diagram name="Page-1" id="SOFUSXu5ZooZrUqL0W-u">
-    <mxGraphModel dx="1434" dy="374" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1707" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -93,13 +93,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="8K3B4b8NisUv7_XMDpPl-17" value="&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;u style=&quot;font-size: 16px;&quot;&gt;SubjectID (PK)&amp;nbsp;&lt;/u&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;SubjectName&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;ClassID (FK)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontSize=16;" parent="1" vertex="1">
+        <mxCell id="8K3B4b8NisUv7_XMDpPl-17" value="&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;u style=&quot;font-size: 16px;&quot;&gt;SubjectID (PK)&lt;/u&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;ClassID (FK)&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;SubjectName&amp;nbsp;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontSize=16;" parent="1" vertex="1">
           <mxGeometry y="330" width="280" height="80" as="geometry" />
         </mxCell>
         <mxCell id="8K3B4b8NisUv7_XMDpPl-18" value="&lt;div style=&quot;font-size: 16px;&quot;&gt;SUBJECT&lt;/div&gt;" style="rounded=0;html=1;fontSize=16;fontStyle=1;align=center;fillColor=#f0f6ff;strokeColor=#6c8ebf;fontColor=#000000;labelBackgroundColor=none;labelBorderColor=default;" parent="1" vertex="1">
           <mxGeometry y="300" width="280" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="8K3B4b8NisUv7_XMDpPl-19" value="&lt;div style=&quot;font-size: 16px;&quot;&gt;UserID (FK)&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;u style=&quot;font-size: 16px;&quot;&gt;AttendanceID&lt;/u&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;Date&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;Status (Present?, Absent?)&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;GroupID&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontSize=16;" parent="1" vertex="1">
+        <mxCell id="8K3B4b8NisUv7_XMDpPl-19" value="&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;u&gt;AttendanceID (PK)&lt;/u&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;RollNumber (FK)&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;UserID (FK)&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;Date&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;Status (Present?, Absent?)&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px;&quot;&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="1080" y="250" width="280" height="180" as="geometry" />
         </mxCell>
         <mxCell id="8K3B4b8NisUv7_XMDpPl-20" value="&lt;div style=&quot;font-size: 16px;&quot;&gt;ATTENDANCE&lt;/div&gt;" style="rounded=0;html=1;fontSize=16;fontStyle=1;align=center;fillColor=#f0f6ff;strokeColor=#6c8ebf;fontColor=#000000;labelBackgroundColor=none;labelBorderColor=default;" parent="1" vertex="1">
