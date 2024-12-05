@@ -450,3 +450,77 @@ button[type="submit"]:hover, button:hover {
     height: 100px;
     resize: vertical;
 }
+
+/* Scoped CSS for Delete Account Section */
+#deleteAccount {
+    margin: 20px auto;
+    padding: 30px;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+#deleteAccount h3 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+#deleteAccount p {
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.delete-account-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#deleteAccount .input-box {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+#deleteAccount .btn {
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+#deleteAccount .search-btn {
+    background-color: #4CAF50;
+}
+
+#deleteAccount .search-btn:hover {
+    background-color: #4768d6;
+}
+
+#deleteAccount .user-details {
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+#deleteAccount .delete-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4fb6df;
+}
+
+#deleteAccount .delete-btn:hover {
+    background-color: #a71d2a;
+}
+
+/* Confirmation dialog CSS (if needed can be scoped dynamically) */
