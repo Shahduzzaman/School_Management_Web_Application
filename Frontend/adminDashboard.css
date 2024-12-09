@@ -451,6 +451,84 @@ button[type="submit"]:hover, button:hover {
     resize: vertical;
 }
 
+/* Update Account */
+#updateAccountForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#updateAccountForm label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#updateAccountForm input,
+#updateAccountForm textarea,
+#updateAccountForm button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#updateAccountForm button[type="submit"] {
+    width: 100%;
+    margin: 0 auto; 
+    padding: 10px; 
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    border-radius: 4px; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    display: block; 
+    text-align: center; 
+}
+
+#updateAccountForm button[type="submit"]:hover {
+    background-color: #4768d6; 
+}
+
+#updateAccountForm input[type="file"] {
+    padding: 5px;
+}
+
+#updateAccountForm textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Search Button Style */
+#searchUserButton {
+    width: auto;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#searchUserButton:hover {
+    background-color: #0056b3;
+}
+
+
+
 /* Scoped CSS for Delete Account Section */
 #deleteAccount {
     margin: 20px auto;

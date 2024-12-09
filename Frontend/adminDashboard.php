@@ -18,6 +18,7 @@
                     <a href="#">User</a>
                     <ul class="submenu">
                         <li><a href="#" onclick="showSection('createAccount')">Create User</a></li>
+                        <li><a href="#" onclick="showSection('updateAccount')">Update User</a></li>
                         <li><a href="#" onclick="showSection('deleteAccount')">Delete User</a></li>
                     </ul>
                 </li>
@@ -49,6 +50,7 @@
         
         
         <div class="content" id="content">
+
             <section id="overview" class="section">
                 <h3>Dashboard Overview</h3>
                 <p>Overview of key metrics and statistics for quick insights.</p>
@@ -103,6 +105,61 @@
                     <button type="submit">Create Account</button>
                 </form>
             </section>
+
+            <section id="updateAccount" class="section">
+                <h4>Update accounts for Moderators, Teachers, Accountants, and Students.</h4>
+                <form id="updateAccountForm" action="#" method="POST" enctype="multipart/form-data">
+                    <h2>Update Account Information</h2>
+                    
+                    <label for="searchUserId">User ID:</label>
+                    <input type="text" id="searchUserId" name="searchUserId" required>
+                    <button type="button" id="searchUserButton">Search</button>
+                    
+                    <div id="updateFields">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob" required>
+                        
+                        <label for="fatherName">Father's Name:</label>
+                        <input type="text" id="fatherName" name="fatherName" required>
+                        
+                        <label for="motherName">Mother's Name:</label>
+                        <input type="text" id="motherName" name="motherName" required>
+                        
+                        <label for="guardianContact">Guardian's Contact:</label>
+                        <input type="tel" id="guardianContact" name="guardianContact" required>
+                        
+                        <label for="presentAddress">Present Address:</label>
+                        <textarea id="presentAddress" name="presentAddress" required></textarea>
+                        
+                        <label for="permanentAddress">Permanent Address:</label>
+                        <textarea id="permanentAddress" name="permanentAddress" required></textarea>
+                        
+                        <label for="picture">Picture (JPG, JPEG, PNG):</label>
+                        <input type="file" id="picture" name="picture" accept=".jpg, .jpeg, .png">
+                        
+                        <label for="birthCertificate">Birth Certificate (PDF):</label>
+                        <input type="file" id="birthCertificate" name="birthCertificate" accept=".pdf">
+                        
+                        <label for="fathersNid">Father's NID (PDF):</label>
+                        <input type="file" id="fathersNid" name="fathersNid" accept=".pdf">
+                        
+                        <label for="mothersNid">Mother's NID (PDF):</label>
+                        <input type="file" id="mothersNid" name="mothersNid" accept=".pdf">
+                        
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                        
+                        <label for="reEnterPassword">Re-enter Password:</label>
+                        <input type="password" id="reEnterPassword" name="reEnterPassword" required>
+                        
+                        <button type="submit">Update Account</button>
+                    </div>
+                </form>
+            </section>
+
 
             <section id="deleteAccount" class="section">
                 <h3>Delete Account</h3>
