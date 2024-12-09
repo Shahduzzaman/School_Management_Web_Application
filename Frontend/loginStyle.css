@@ -31,13 +31,23 @@ body {
     margin-bottom: 5px;
 }
 .input-group {
+    position: relative; /* For positioning the toggle icon */
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
+
+.input-group .toggle-password {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #ddd;
+}
+
 .input-group i {
     padding: 10px;
-    background: #f0e7e7;
+    background: #f0e7e700;
     border-radius: 50%;
     margin-right: 10px;
 }

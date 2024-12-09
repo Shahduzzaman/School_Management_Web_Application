@@ -17,7 +17,8 @@
                     <input type="text" placeholder="User ID" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="toggle-password" id="togglePassword">👁‍🗨️</i>
                 </div>
                 <div class="options">
                     <a href="#">Forgot Password?</a>
