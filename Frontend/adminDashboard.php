@@ -57,7 +57,6 @@
             </section>
 
             <section id="createAccount" class="section">
-                <h4>Create accounts for Moderators, Teachers, Accountants, and Students.</h4>
                 <form id="createAccountForm" action="#" method="POST" enctype="multipart/form-data">
                     <h2>Create New Account</h2>
                     <label for="name">Name:</label>
@@ -107,7 +106,6 @@
             </section>
 
             <section id="updateAccount" class="section">
-                <h4>Update accounts for Moderators, Teachers, Accountants, and Students.</h4>
                 <form id="updateAccountForm" action="#" method="POST" enctype="multipart/form-data">
                     <h2>Update Account Information</h2>
                     
