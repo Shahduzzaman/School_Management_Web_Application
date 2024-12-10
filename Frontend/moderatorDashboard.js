@@ -14,5 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function logOut() {
     alert("Logging out...");
-    window.location.href = "login.php";
+    window.location.href = "login.html";
 }

@@ -259,5 +259,5 @@ document.getElementById("change-password-form").addEventListener("submit", async
 
 function logOut() {
     alert("Logging out...");
-    window.location.href = "login.php";
+    window.location.href = "login.html";
 }
