@@ -17,7 +17,7 @@ cursor = db.cursor()
 @app.route("/", methods=["GET"])
 def index():
     # Rendering index.html (main page)
-    return render_template("index.php")
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
