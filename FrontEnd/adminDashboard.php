@@ -116,7 +116,7 @@
             </section>
 
             <section id="updateAccount" class="section">
-                <form id="updateAccountForm" action="#" method="POST" enctype="multipart/form-data">
+                <form id="updateAccountForm" action="create_user.php" method="POST" enctype="multipart/form-data">
                     <h2>Update Account Information</h2>
                     
                     <label for="searchUserId">User ID:</label>
@@ -145,17 +145,17 @@
                         <label for="permanentAddress">Permanent Address:</label>
                         <textarea id="permanentAddress" name="permanentAddress" required></textarea>
                         
-                        <label for="picture">Picture (JPG, JPEG, PNG):</label>
+                        <label for="picture">Picture (jpg, jpeg, png):</label>
                         <input type="file" id="picture" name="picture" accept=".jpg, .jpeg, .png">
                         
-                        <label for="birthCertificate">Birth Certificate (PDF):</label>
-                        <input type="file" id="birthCertificate" name="birthCertificate" accept=".pdf">
+                        <label for="birthCertificate">Birth Certificate (jpg, jpeg, png, pdf):</label>
+                        <input type="file" id="birthCertificate" name="birthCertificate" accept=".jpg, .jpeg, .png, .pdf">
                         
-                        <label for="fathersNid">Father's NID (PDF):</label>
-                        <input type="file" id="fathersNid" name="fathersNid" accept=".pdf">
+                        <label for="fathersNid">Father's NID (jpg, jpeg, png, pdf):</label>
+                        <input type="file" id="fathersNid" name="fathersNid" accept=".jpg, .jpeg, .png, .pdf">
                         
-                        <label for="mothersNid">Mother's NID (PDF):</label>
-                        <input type="file" id="mothersNid" name="mothersNid" accept=".pdf">
+                        <label for="mothersNid">Mother's NID (jpg, jpeg, png, pdf):</label>
+                        <input type="file" id="mothersNid" name="mothersNid" accept=".jpg, .jpeg, .png, .pdf">
                         
                         <label for="password">Password:</label>
                         <input type="password" id="password" name="password" required>
