@@ -83,16 +83,16 @@
                     <label for="permanentAddress">Permanent Address:</label>
                     <textarea id="permanentAddress" name="permanentAddress" required></textarea>
             
-                    <label for="picture">Picture (JPG, JPEG, PNG):</label>
+                    <label for="picture">Picture (jpg, jpeg, png):</label>
                     <input type="file" id="picture" name="picture" accept=".jpg, .jpeg, .png" required>
             
-                    <label for="birthCertificate">Birth Certificate (JPG, JPEG, PNG, PDF):</label>
+                    <label for="birthCertificate">Birth Certificate (jpg, jpeg, png, pdf):</label>
                     <input type="file" id="birthCertificate" name="birthCertificate" accept=".jpg, .jpeg, .png, .pdf" required>
             
-                    <label for="fathersNid">Father's NID (JPG, JPEG, PNG, PDF):</label>
+                    <label for="fathersNid">Father's NID (jpg, jpeg, png, pdf):</label>
                     <input type="file" id="fathersNid" name="fathersNid" accept=".jpg, .jpeg, .png, .pdf" required>
             
-                    <label for="mothersNid">Mother's NID (JPG, JPEG, PNG, PDF):</label>
+                    <label for="mothersNid">Mother's NID (jpg, jpeg, png, pdf):</label>
                     <input type="file" id="mothersNid" name="mothersNid" accept=".jpg, .jpeg, .png, .pdf" required>
             
                     <label for="password">Password:</label>
@@ -101,7 +101,7 @@
                     <label for="reEnterPassword">Re-enter Password:</label>
                     <input type="password" id="reEnterPassword" name="reEnterPassword" required>
 
-                    <label for="role">Role:</label>
+                    <label for="role">User Role:</label>
                     <select id="role" name="role" required>
                         <option value="" disabled selected>Select a role</option>
                         <option value="Admin">Admin</option>
