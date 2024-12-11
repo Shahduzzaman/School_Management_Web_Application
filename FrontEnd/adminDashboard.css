@@ -451,6 +451,27 @@ button[type="submit"]:hover, button:hover {
     resize: vertical;
 }
 
+#createAccountForm select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+#createAccountForm select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+#createAccountForm option {
+    padding: 10px;
+    font-size: 1rem;
+}
+
 /* Update Account */
 #updateAccountForm {
     max-width: 600px;

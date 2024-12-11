@@ -100,7 +100,17 @@
             
                     <label for="reEnterPassword">Re-enter Password:</label>
                     <input type="password" id="reEnterPassword" name="reEnterPassword" required>
-            
+
+                    <label for="role">Role:</label>
+                    <select id="role" name="role" required>
+                        <option value="" disabled selected>Select a role</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Moderator">Moderator</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Accountant">Accountant</option>
+                        <option value="Student">Student</option>
+                    </select>
+
                     <button type="submit">Create Account</button>
                 </form>
             </section>
