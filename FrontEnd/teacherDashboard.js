@@ -7,6 +7,7 @@ function showSection(sectionId) {
         }
     });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
     showSection('attendance');
 });
@@ -14,5 +15,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function logOut() {
     alert("Logging out...");
-    window.location.href = "login.html";
+    window.location.href = "login.php";
 }

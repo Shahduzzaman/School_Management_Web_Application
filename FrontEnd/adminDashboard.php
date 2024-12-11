@@ -57,7 +57,7 @@
             </section>
 
             <section id="createAccount" class="section">
-                <form id="createAccountForm" action="#" method="POST" enctype="multipart/form-data">
+                <form id="createAccountForm" action="create_user.php" method="POST" enctype="multipart/form-data">
                     <h2>Create New Account</h2>
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
