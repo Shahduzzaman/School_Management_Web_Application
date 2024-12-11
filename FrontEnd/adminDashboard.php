@@ -86,14 +86,14 @@
                     <label for="picture">Picture (JPG, JPEG, PNG):</label>
                     <input type="file" id="picture" name="picture" accept=".jpg, .jpeg, .png" required>
             
-                    <label for="birthCertificate">Birth Certificate (PDF):</label>
-                    <input type="file" id="birthCertificate" name="birthCertificate" accept=".pdf" required>
+                    <label for="birthCertificate">Birth Certificate (JPG, JPEG, PNG, PDF):</label>
+                    <input type="file" id="birthCertificate" name="birthCertificate" accept=".jpg, .jpeg, .png, .pdf" required>
             
-                    <label for="fathersNid">Father's NID (PDF):</label>
-                    <input type="file" id="fathersNid" name="fathersNid" accept=".pdf" required>
+                    <label for="fathersNid">Father's NID (JPG, JPEG, PNG, PDF):</label>
+                    <input type="file" id="fathersNid" name="fathersNid" accept=".jpg, .jpeg, .png, .pdf" required>
             
-                    <label for="mothersNid">Mother's NID (PDF):</label>
-                    <input type="file" id="mothersNid" name="mothersNid" accept=".pdf" required>
+                    <label for="mothersNid">Mother's NID (JPG, JPEG, PNG, PDF):</label>
+                    <input type="file" id="mothersNid" name="mothersNid" accept=".jpg, .jpeg, .png, .pdf" required>
             
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
