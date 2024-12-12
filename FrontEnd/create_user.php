@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mothersNid = $_FILES['mothersNid'];
 
 
-    $uploadDir = './uploads';
+    $uploadDir = '../uploads/';
 
     $picturePath = $uploadDir . basename($picture['name']);
     $birthCertificatePath = $uploadDir . basename($birthCertificate['name']);
