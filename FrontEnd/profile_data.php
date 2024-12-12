@@ -2,8 +2,14 @@
 // Include database connection
 include('connect_db.php');
 
-// Hardcoded UserID for now. In a real-world scenario, replace with session-based UserID
-$UserID = '44444';
+// Start session to access user ID
+session_start();
+if (!isset($_SESSION['UserID'])) {
+    echo "Please log in to view your profile.";
+    exit();
+}
+
+$UserID = $_SESSION['UserID'];
 
 try {
     // Fetch user data from the database

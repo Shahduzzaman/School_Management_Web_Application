@@ -12,12 +12,12 @@
             <div class="logo">
                 <img src="images/TESL_logo.png" alt="Logo">
             </div>
-            <form action="studentDashboard.php" method="get">
+            <form action="login_db.php" method="get">
                 <div class="input-group">
-                    <input type="text" placeholder="User ID" required>
+                    <input type="text" name="userId" placeholder="User ID" required>
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" placeholder="Password" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
                     <i class="toggle-password" id="togglePassword">👁‍🗨️</i>
                 </div>
                 <div class="options">
