@@ -2,7 +2,6 @@
 session_start();
 include('connect_db.php');
 
-// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // Get input values
     $userID = trim($_GET['userId']);

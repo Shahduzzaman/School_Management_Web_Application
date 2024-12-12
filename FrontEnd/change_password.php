@@ -2,13 +2,18 @@
 session_start();
 include('connect_db.php');
 
+if (!isset($_SESSION['UserID'])) {
+    echo "Please log in to view your profile.";
+    exit();
+}
+
+$UserID = $_SESSION['UserID'];
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get input values
     $currentPassword = trim($_POST['current-password']);
     $newPassword = trim($_POST['new-password']);
     $reEnterPassword = trim($_POST['re-enter-password']);
-    $UserID = '44444';  // In a real-world scenario, replace this with session-based UserID
 
     try {
         // Fetch current password from the database
