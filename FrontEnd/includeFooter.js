@@ -1,7 +1,7 @@
 function includeFooter() {
     const footerElement = document.querySelector('[data-include-footer]');
     if (footerElement) {
-        fetch("footer.html")
+        fetch("footer.php")
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");

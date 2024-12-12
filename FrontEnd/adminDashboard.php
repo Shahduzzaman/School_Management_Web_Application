@@ -157,19 +157,23 @@
 
 
             <section id="deleteAccount" class="section">
-                <h3>Delete Account</h3>
-                <p>Delete user account.</p>
-                <div class="delete-account-form">
-                    <label for="userId">User ID:</label>
-                    <input type="text" id="userId" class="input-box" placeholder="Enter User ID">
-                    <button id="searchUser" class="btn search-btn">Search</button>
-                </div>
-                <div class="user-details">
-                    <p><strong>Name:</strong> <span id="userName">-</span></p>
-                    <p><strong>User ID:</strong> <span id="userDisplayId">-</span></p>
-                </div>
-                <button id="deleteButton" class="btn delete-btn">Delete</button>
+                    <h3>Delete Account</h3>
+                    <p>Search and delete a user account.</p>
+
+                    <div class="delete-account-form">
+                        <label>User ID:</label>
+                        <input type="text" id="userId" class="input-box" placeholder="Enter User ID">
+                        <button id="searchUser" class="btn search-btn" type="button">Search</button>
+                    </div>
+
+                    <div class="user-details">
+                        <p><strong>Name:</strong> <span id="userName">-</span></p>
+                        <p><strong>User ID:</strong> <span id="userDisplayId">-</span></p>
+                    </div>
+
+                    <button id="deleteButton" class="btn delete-btn" type="button">Delete</button>
             </section>
+
 
 
             <section id="attendance" class="section">

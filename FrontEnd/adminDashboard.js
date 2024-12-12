@@ -12,42 +12,56 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.getElementById('searchUserButton').addEventListener('click', function() {
-    const userId = document.getElementById('searchUserId').value;
+document.getElementById('searchUser').addEventListener('click', function() {
+    const userId = document.getElementById('userId').value;
 
     if (userId) {
-        console.log('User ID:', userId);  // Debugging line
-
         fetch('search_user.php', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `searchUserId=${userId}`
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `userId=${encodeURIComponent(userId)}`
         })
         .then(response => response.json())
-        .then(user => {
-            console.log('User response:', user);  // Debugging line
-
-            if (user.error) {
-                alert(user.error);
+        .then(data => {
+            if (data.success) {
+                document.getElementById('userName').innerText = data.name;
+                document.getElementById('userDisplayId').innerText = data.userId;
             } else {
-                document.getElementById('name').value = user.name;
-                document.getElementById('dob').value = user.dob;
-                document.getElementById('fatherName').value = user.fathers_name;
-                document.getElementById('motherName').value = user.mothers_name;
-                document.getElementById('guardianContact').value = user.guardian_contact;
-                document.getElementById('presentAddress').value = user.present_address;
-                document.getElementById('permanentAddress').value = user.permanent_address;
-                document.getElementById('password').value = user.password;
-                document.getElementById('reEnterPassword').value = user.password;
+                alert('User not found.');
+                document.getElementById('userName').innerText = '-';
+                document.getElementById('userDisplayId').innerText = '-';
             }
         })
-        .catch(error => console.error('AJAX Error:', error));  // Debugging AJAX errors
-    } else {
-        alert('Please enter a User ID');
+        .catch(err => console.error('Search Error:', err)); 
     }
 });
+
+
+
+document.getElementById('deleteButton').addEventListener('click', function() {
+    const userId = document.getElementById('userDisplayId').innerText;
+
+    if (userId !== '-') {
+        if (confirm('Are you sure you want to delete this account?')) {
+            fetch('delete_user.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `userId=${encodeURIComponent(userId)}`
+            })
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+                if (message === 'Account deleted successfully') {
+                    document.getElementById('userName').innerText = '-';
+                    document.getElementById('userDisplayId').innerText = '-';
+                }
+            })
+            .catch(err => console.error('Delete Error:', err));
+        }
+    }
+});
+
+
 
 
 
