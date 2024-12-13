@@ -28,11 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordField = document.getElementById("password");
 
     togglePassword.addEventListener("click", function () {
-        // Toggle the type attribute
         const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
         passwordField.setAttribute("type", type);
 
-        // Change the icon (optional)
         this.textContent = type === "password" ? "👁‍🗨️" : "👁️";
     });
 });
+
+
+var closeBtns = document.getElementsByClassName("closebtn");
+        for (var i = 0; i < closeBtns.length; i++) {
+            closeBtns[i].addEventListener("click", function(){
+                this.parentElement.style.display = "none";
+            });
+        }

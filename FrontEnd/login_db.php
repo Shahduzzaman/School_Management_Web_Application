@@ -3,12 +3,11 @@ session_start();
 include('connect_db.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get input values
     $userID = trim($_POST['userId']);
     $password = trim($_POST['password']);
 
     try {
-        // Fetch user data from the database
+
         $query = "SELECT `UserID`, `Password`, `role` FROM `user` WHERE `UserID` = :UserID";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':UserID', $userID);
@@ -20,35 +19,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $userPasswordHash = $user['Password'];
             $userType = $user['role'];
 
-            // Verify submitted password with stored hash
             if (password_verify($password, $userPasswordHash)) {
                 $_SESSION['UserID'] = $user['UserID'];
-                
-                // Redirect to appropriate dashboard based on UserID range and length
+
                 if ($user['UserID'] >= 1 && $user['UserID'] <= 9) {
                     header('Location: AdminDashboard.php');
+                    exit();
                 } elseif ($user['UserID'] >= 11 && $user['UserID'] <= 20) {
                     header('Location: accountantDashboard.php');
+                    exit();
                 } elseif ($user['UserID'] >= 21 && $user['UserID'] <= 40) {
                     header('Location: moderatorDashboard.php');
+                    exit();
                 } elseif (strlen($user['UserID']) === 3) {
                     header('Location: teacherDashboard.php');
+                    exit();
                 } elseif (strlen($user['UserID']) === 5) {
                     header('Location: studentDashboard.php');
+                    exit();
                 } else {
-                    echo "Invalid UserID";
+                    $_SESSION['error'] = 'Invalid UserID';
+                    header('Location: login.php');
                     exit();
                 }
-                exit();
-
+                
             } else {
-                echo "Incorrect password";
+                $_SESSION['error'] = 'Incorrect password';
+                header('Location: login.php');
+                exit();
             }
         } else {
-            echo "User not found!";
+            $_SESSION['error'] = 'User not found!';
+            header('Location: login.php');
+            exit();
         }
     } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
+        $_SESSION['error'] = 'Database Error: ' . $e->getMessage();
+        header('Location: login.php');
+        exit();
     }
 }
 ?>
