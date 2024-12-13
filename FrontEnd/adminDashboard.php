@@ -370,6 +370,7 @@ include('profile_data.php');
                     <br>
                     <label for="classSelect">Enter Class:</label>
                     <select id="classSelect">
+                        <option>Select Class</option>
                         <option value="pre-school">Pre-School</option>
                         <option value="play">Play</option>
                         <option value="nursery">Nursery</option>
@@ -392,7 +393,7 @@ include('profile_data.php');
                     <div class="profile-picture-container">
                         <img src="" alt="Profile Picture" id="student-profile-picture" />
                     </div>
-                        <div class="profile-info">
+                    <div class="profile-info">
                         <div class="profile-item"><strong>Name:</strong> <span id="student-name"></span></div>
                         <div class="profile-item"><strong>User ID:</strong> <span id="user-id"></span></div>
                         <div class="profile-item"><strong>Date of Birth:</strong> <span id="date-of-birth"></span></div>
@@ -468,8 +469,25 @@ include('profile_data.php');
                             <span id="procuredMarks"></span>
                         </div>
                     </div>
+
+                    <div id="additionalDocuments">
+                        <h4>Additional Documents</h4>
+                        <div class="document-item">
+                            <strong>Birth Certificate:</strong>
+                            <span id="birth-certificate-display">Not Uploaded</span>
+                        </div>
+                        <div class="document-item">
+                            <strong>Father's NID:</strong>
+                            <span id="father-nid-display">Not Uploaded</span>
+                        </div>
+                        <div class="document-item">
+                            <strong>Mother's NID:</strong>
+                            <span id="mother-nid-display">Not Uploaded</span>
+                        </div>
+                    </div>
                 </div>
             </section>
+
 
 
         </div>
