@@ -392,11 +392,15 @@ include('profile_data.php');
                     <div class="profile-picture-container">
                         <img src="" alt="Profile Picture" id="student-profile-picture" />
                     </div>
-
-                    <div class="profile-info">
-                        <div class="profile-item"><strong>User ID:</strong> <span id="user-id-display"></span></div>
-                        <div class="profile-item"><strong>Name:</strong> <span id="student-name-display"></span></div>
-                        <div class="profile-item"><strong>Roll Number:</strong> <span id="roll-number-display"></span></div>
+                        <div class="profile-info">
+                        <div class="profile-item"><strong>Name:</strong> <span id="student-name"></span></div>
+                        <div class="profile-item"><strong>User ID:</strong> <span id="user-id"></span></div>
+                        <div class="profile-item"><strong>Date of Birth:</strong> <span id="date-of-birth"></span></div>
+                        <div class="profile-item"><strong>Father's Name:</strong> <span id="father-name"></span></div>
+                        <div class="profile-item"><strong>Mother's Name:</strong> <span id="mother-name"></span></div>
+                        <div class="profile-item"><strong>Guardian's Contact:</strong> <span id="guardian-contact"></span></div>
+                        <div class="profile-item"><strong>Present Address:</strong> <span id="present-address"></span></div>
+                        <div class="profile-item"><strong>Permanent Address:</strong> <span id="permanent-address"></span></div>
                     </div>
 
                     <div id="examSelection">
