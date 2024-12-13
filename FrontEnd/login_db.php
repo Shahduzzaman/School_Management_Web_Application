@@ -2,10 +2,10 @@
 session_start();
 include('connect_db.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get input values
-    $userID = trim($_GET['userId']);
-    $password = trim($_GET['password']);
+    $userID = trim($_POST['userId']);
+    $password = trim($_POST['password']);
 
     try {
         // Fetch user data from the database
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     exit();
                 }
                 exit();
-                
+
             } else {
                 echo "Incorrect password";
             }

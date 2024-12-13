@@ -12,7 +12,7 @@
             <div class="logo">
                 <img src="images/TESL_logo.png" alt="Logo">
             </div>
-            <form action="login_db.php" method="get">
+            <form action="login_db.php" method="post">
                 <div class="input-group">
                     <input type="text" name="userId" placeholder="User ID" required>
                 </div>
