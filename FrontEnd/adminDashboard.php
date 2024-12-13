@@ -47,7 +47,7 @@ include('profile_data.php');
                     <a href="#">Profile</a>
                     <ul class="submenu">
                         <li><a href="#" onclick="showSection('profile')">My Profile</a></li>
-                        <li><a href="#" onclick="showSection('viewProfile')">View Profile</a></li>
+                        <li><a href="#" onclick="showSection('studentProfile')">View Profile</a></li>
                     </ul>
                 </li>
                 <li><a href="#" onclick="logOut()">Log Out</a></li>
@@ -360,8 +360,113 @@ include('profile_data.php');
                         <button type="submit" class="btn">Change Password</button>
                     </form>
                 </div>
-
             </section>
+
+            <section id="studentProfile" class="section">
+                <h3>Student Profile</h3>
+                <div id="studentSearch">
+                    <label for="searchStudentId">Enter Student ID:</label>
+                    <input type="text" id="searchStudentId" placeholder="Student ID">
+                    <br>
+                    <label for="classSelect">Enter Class:</label>
+                    <select id="classSelect">
+                        <option value="pre-school">Pre-School</option>
+                        <option value="play">Play</option>
+                        <option value="nursery">Nursery</option>
+                        <option value="grade-1">Grade 1</option>
+                        <option value="grade-2">Grade 2</option>
+                        <option value="grade-3">Grade 3</option>
+                        <option value="grade-4">Grade 4</option>
+                        <option value="grade-5">Grade 5</option>
+                        <option value="grade-6">Grade 6</option>
+                        <option value="grade-7">Grade 7</option>
+                        <option value="grade-8">Grade 8</option>
+                        <option value="grade-9">Grade 9</option>
+                        <option value="grade-10">Grade 10</option>
+                    </select>
+                    <br>
+                    <button type="button" onclick="fetchStudentProfile()">Search</button>
+                </div>
+
+                <div id="studentProfileDisplay">
+                    <div class="profile-picture-container">
+                        <img src="" alt="Profile Picture" id="student-profile-picture" />
+                    </div>
+
+                    <div class="profile-info">
+                        <div class="profile-item"><strong>User ID:</strong> <span id="user-id-display"></span></div>
+                        <div class="profile-item"><strong>Name:</strong> <span id="student-name-display"></span></div>
+                        <div class="profile-item"><strong>Roll Number:</strong> <span id="roll-number-display"></span></div>
+                    </div>
+
+                    <div id="examSelection">
+                        <label for="examTypeSelect">Select Exam:</label>
+                        <select id="examTypeSelect" onchange="loadExamResults()">
+                            <option value="first-term">1st Term Exam</option>
+                            <option value="second-term">2nd Term Exam</option>
+                            <option value="annual">Annual Exam</option>
+                        </select>
+                    </div>
+
+                    <div id="examResults">
+                        <h4>Results Table</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Serial No.</th>
+                                    <th>Subject</th>
+                                    <th>Full Marks</th>
+                                    <th>Written</th>
+                                    <th>MCQ</th>
+                                    <th>Practical</th>
+                                    <th>Total</th>
+                                    <th>Highest</th>
+                                    <th>Letter Grade</th>
+                                    <th>Grade Point</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><span id="subject1Name"></span></td>
+                                    <td><span id="subject1FullMarks"></span></td>
+                                    <td><span id="subject1Written"></span></td>
+                                    <td><span id="subject1MCQ"></span></td>
+                                    <td><span id="subject1Practical"></span></td>
+                                    <td><span id="subject1Total"></span></td>
+                                    <td><span id="subject1Highest"></span></td>
+                                    <td><span id="subject1LetterGrade"></span></td>
+                                    <td><span id="subject1GradePoint"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div id="totalMarksContainer">
+                            <label for="monthlyExamTotal">Total of Monthly Exam:</label>
+                            <span id="monthlyExamTotal"></span>
+
+                            <label for="monthlyExamPercentage">20% of Monthly Exam:</label>
+                            <span id="monthlyExamPercentage"></span>
+
+                            <label for="gpaWithoutAdditional">GPA without Additional Subject:</label>
+                            <span id="gpaWithoutAdditional"></span>
+
+                            <label for="totalGpa">GPA with Additional Subject:</label>
+                            <span id="totalGpa"></span>
+
+                            <label for="comment">Comment:</label>
+                            <p id="comment"></p>
+
+                            <label for="totalMarks">Total Marks:</label>
+                            <span id="totalMarks"></span>
+
+                            <label for="procuredMarks">Procured Marks:</label>
+                            <span id="procuredMarks"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
         </div>
     </div>
