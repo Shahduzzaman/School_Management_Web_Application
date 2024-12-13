@@ -375,7 +375,7 @@ include('profile_data.php');
                         <option value="play">Play</option>
                         <option value="nursery">Nursery</option>
                         <option value="grade-1">Grade 1</option>
-                        <option value="grade-2">Grade 2</option>
+                        <option value="2">Grade 2</option>
                         <option value="grade-3">Grade 3</option>
                         <option value="grade-4">Grade 4</option>
                         <option value="grade-5">Grade 5</option>
