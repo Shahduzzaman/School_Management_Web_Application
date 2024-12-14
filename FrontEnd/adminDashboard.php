@@ -192,8 +192,8 @@ include('profile_data.php');
                     <button type="button" id="deleteAccount_searchButton">Search</button>
                     <div id="userInfo" style="margin-top: 10px;">
                         <p><strong>User Name:</strong> <span id="userName">N/A</span></p>
-                        <button type="button" id="deleteAccount_deleteButton" style="background-color: red; color: white;">Delete</button>
                     </div>
+                    <button type="button" id="deleteAccount_deleteButton" style="background-color: red; color: white;">Delete</button>
                 </form>
             </section>
 
@@ -258,6 +258,25 @@ include('profile_data.php');
                 </form>
                 <div id="createSubjformMsg" style="display: none; margin-top: 10px;"></div>
             </section>
+
+            <section id="assignSubject" class="section">
+                <h3>Assign Subject</h3>
+                <form id="assignSubjectForm">
+                    <label for="classDropdown">Select Class:</label>
+                    <select id="classDropdown" name="classId" required>
+                        <option value="">-- Select Class --</option>
+                    </select>
+
+                    <label for="subjectDropdown">Select Subject:</label>
+                    <select id="subjectDropdown" name="subjectId" required>
+                        <option value="">-- Select Subject --</option>
+                    </select>
+
+                    <button type="button" id="assignSubjectButton">Assign Subject</button>
+                </form>
+                <div id="assignSubjformMsg" style="display: none; margin-top: 10px;"></div>
+            </section>
+
 
             <section id="deleteSubject" class="section">
                 <h3>Delete Subject</h3>

@@ -224,6 +224,95 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const classDropdown = document.getElementById('classDropdown');
+    const subjectDropdown = document.getElementById('subjectDropdown');
+    const formMessage = document.getElementById('assignSubjformMsg');
+
+    // Populate Class Dropdown
+    fetch('get_classes.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                data.classes.forEach(cls => {
+                    const option = document.createElement('option');
+                    option.value = cls.ClassID;
+                    option.textContent = `${cls.ClassID} - ${cls.ClassName}`;
+                    classDropdown.appendChild(option);
+                });
+            } else {
+                formMessage.textContent = data.message || 'Failed to load classes.';
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            formMessage.textContent = 'Error occurred: ' + error.message;
+            formMessage.className = 'error';
+            formMessage.style.display = 'block';
+        });
+
+    // Populate Subject Dropdown
+    fetch('get_subjects.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                data.subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject.SubjectID;
+                    option.textContent = `${subject.SubjectID} - ${subject.SubjectName}`;
+                    subjectDropdown.appendChild(option);
+                });
+            } else {
+                formMessage.textContent = data.message || 'Failed to load subjects.';
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            formMessage.textContent = 'Error occurred: ' + error.message;
+            formMessage.className = 'error';
+            formMessage.style.display = 'block';
+        });
+
+    // Handle Assign Action
+    document.getElementById('assignSubjectButton').addEventListener('click', function () {
+        const classId = classDropdown.value;
+        const subjectId = subjectDropdown.value;
+
+        if (!classId || !subjectId) {
+            formMessage.textContent = 'Both Class and Subject must be selected.';
+            formMessage.className = 'error';
+            formMessage.style.display = 'block';
+            return;
+        }
+
+        fetch('assign_subject.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ classId: classId, subjectId: subjectId }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    formMessage.textContent = 'Subject assigned successfully!';
+                    formMessage.className = 'success';
+                    formMessage.style.display = 'block';
+                } else {
+                    formMessage.textContent = data.message || 'Failed to assign subject.';
+                    formMessage.className = 'error';
+                    formMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                formMessage.textContent = 'Error occurred: ' + error.message;
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+            });
+    });
+});
+
+
 function logOut() {
     if (confirm("Are you sure you want to log out?")) {
         window.location.href = "logout.php";

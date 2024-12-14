@@ -553,19 +553,17 @@ button[type="submit"]:hover, button:hover {
     font-size: 0.9rem;
 }
 
-#deleteButton {
+#deleteAccount_deleteButton {
     padding: 10px;
-    background-color: #dc3545;
+    background-color: #f51010;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
     font-size: 1rem;
-    width: 100%;
 }
 
-#deleteButton:hover {
+#deleteAccount_deleteButton:hover {
     background-color: #b02a37;
 }
 
@@ -694,7 +692,7 @@ button[type="submit"]:hover, button:hover {
     background-color: #4768d6;
 }
 
-/* General Section Styling */
+/* Create Subject Section */
 #createSubject {
     padding: 20px;
     background-color: #f9f9f9;
@@ -711,7 +709,6 @@ button[type="submit"]:hover, button:hover {
     margin-bottom: 10px;
 }
 
-/* Create Subject Section */
 #createSubjectForm {
     display: flex;
     flex-direction: column;
@@ -765,6 +762,79 @@ button[type="submit"]:hover, button:hover {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+
+
+/* Assign Subject Section */
+#assignSubject {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+#assignSubject h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#assignSubjectForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#assignSubjectForm label {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+#classDropdown,
+#subjectDropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+#assignSubjectButton {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#assignSubjectButton:hover {
+    background-color: #0056b3;
+}
+
+#assignSubjformMsg {
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#assignSubjformMsg.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#assignSubjformMsg.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 
 /* Delete Subject Section*/
 #deleteSubject {
