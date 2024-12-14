@@ -12,54 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.getElementById('searchUser').addEventListener('click', function() {
-    const userId = document.getElementById('userId').value;
 
-    if (userId) {
-        fetch('search_user.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `userId=${encodeURIComponent(userId)}`
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById('userName').innerText = data.name;
-                document.getElementById('userDisplayId').innerText = data.userId;
-            } else {
-                alert('User not found.');
-                document.getElementById('userName').innerText = '-';
-                document.getElementById('userDisplayId').innerText = '-';
-            }
-        })
-        .catch(err => console.error('Search Error:', err)); 
-    }
-});
-
-
-
-document.getElementById('deleteButton').addEventListener('click', function() {
-    const userId = document.getElementById('userDisplayId').innerText;
-
-    if (userId !== '-') {
-        if (confirm('Are you sure you want to delete this account?')) {
-            fetch('delete_user.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `userId=${encodeURIComponent(userId)}`
-            })
-            .then(response => response.text())
-            .then(message => {
-                alert(message);
-                if (message === 'Account deleted successfully') {
-                    document.getElementById('userName').innerText = '-';
-                    document.getElementById('userDisplayId').innerText = '-';
-                }
-            })
-            .catch(err => console.error('Delete Error:', err));
-        }
-    }
-});
 
 function fetchStudentProfile() {
     const studentID = document.getElementById('searchStudentId').value;
@@ -109,6 +62,21 @@ function fetchStudentProfile() {
         })
         .catch(error => console.error('Error fetching student profile:', error));
 }
+
+function closeMessage(type) {
+    // Hide the message element
+    var messageElement = document.getElementById(type + '-message');
+    if (messageElement) {
+        messageElement.style.display = "none";
+    }
+
+    // Send AJAX request to remove message from the session
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "remove_message.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("type=" + type);
+}
+
 
 
 
