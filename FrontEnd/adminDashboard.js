@@ -257,6 +257,10 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
+                // Clear existing options
+                subjectDropdown.innerHTML = '<option value="">-- Select Subject --</option>';
+
+                // Add new options to the dropdown
                 data.subjects.forEach(subject => {
                     const option = document.createElement('option');
                     option.value = subject.SubjectID;
@@ -311,6 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
+
 
 
 function logOut() {
