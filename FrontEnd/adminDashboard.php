@@ -242,6 +242,7 @@ include('profile_data.php');
             
                 <label for="classSelect">Select Class:</label>
                 <select id="classSelect" name="class" onchange="loadAttendance()">
+                    <option value="" disabled selected>Select Class</option>
                     <option value="Staff">Staff</option>
                     <option value="pre-school">Pre-School</option>
                     <option value="play">Play</option>
@@ -424,7 +425,7 @@ include('profile_data.php');
                     <br>
                     <label for="classSelect">Enter Class:</label>
                     <select id="classSelect">
-                        <option>Select Class</option>
+                        <option value="" disabled selected>Select Class</option>
                         <option value="pre-school">Pre-School</option>
                         <option value="play">Play</option>
                         <option value="nursery">Nursery</option>
