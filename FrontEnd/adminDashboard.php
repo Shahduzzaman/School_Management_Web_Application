@@ -245,6 +245,21 @@ include('profile_data.php');
                 </form>
             </section>
 
+            <section id="createSubject" class="section">
+                <h3>Create Subject</h3>
+                <form id="createSubjectForm">
+                    <label for="subjectIdInput">Subject ID:</label>
+                    <input type="text" id="subjectIdInput" name="subjectId" placeholder="Enter Subject ID" required>
+                    
+                    <label for="subjectNameInput">Subject Name:</label>
+                    <input type="text" id="subjectNameInput" name="subjectName" placeholder="Enter Subject Name" required>
+                    
+                    <button type="button" id="createSubjectButton">Create Subject</button>
+                </form>
+                <div id="createSubjformMsg" style="display: none; margin-top: 10px;"></div>
+            </section>
+
+
 
             <section id="attendance" class="section">
                 <h3>Teacher Attendance</h3>

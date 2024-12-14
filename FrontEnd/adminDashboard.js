@@ -126,6 +126,42 @@ function closeMessage(type) {
 }
 
 
+document.getElementById('createSubjectButton').addEventListener('click', function () {
+    const subjectId = document.getElementById('subjectIdInput').value;
+    const subjectName = document.getElementById('subjectNameInput').value;
+    const formMessage = document.getElementById('createSubjformMsg');
+
+    if (!subjectId || !subjectName) {
+        formMessage.textContent = 'Both Subject ID and Subject Name are required.';
+        formMessage.className = 'error';
+        formMessage.style.display = 'block';
+        return;
+    }
+
+    fetch('create_subject.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ subjectId: subjectId, subjectName: subjectName }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                formMessage.textContent = 'Subject created successfully!';
+                formMessage.className = 'success';
+                formMessage.style.display = 'block';
+                document.getElementById('createSubjectForm').reset();
+            } else {
+                formMessage.textContent = data.message || 'Error occurred while creating the subject.';
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            formMessage.textContent = 'Error occurred: ' + error.message;
+            formMessage.className = 'error';
+            formMessage.style.display = 'block';
+        });
+});
 
 
 function logOut() {
