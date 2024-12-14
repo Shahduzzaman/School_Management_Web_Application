@@ -35,6 +35,14 @@ include('profile_data.php');
                         <li><a href="#" onclick="showSection('deleteClass')">Delete Class</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#">Subject</a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="showSection('createSubject')">Create Subject</a></li>
+                        <li><a href="#" onclick="showSection('assignSubject')">Assign Subject</a></li>
+                        <li><a href="#" onclick="showSection('deleteSubject')">Delete Subject</a></li>
+                    </ul>
+                </li>
                 <li><a href="#" onclick="showSection('attendance')">Attendance</a></li>
                 <li class="dropdown">
                     <a href="#">Payment</a>
@@ -179,6 +187,52 @@ include('profile_data.php');
 
                     <button id="deleteButton" class="btn delete-btn" type="button">Delete</button>
             </section>
+
+            <section id="createClass" class="section">
+                <form id="createClassForm" action="create_class.php" method="POST">
+                    <h3>Create Class</h3>
+                    <p>Naming Convention: ClassName_Section_Year.</p>
+                    <p>Example: G-1_S-1_2024</p>
+
+                    <label for="classID">Class ID:</label>
+                    <input type="text" id="classID" name="classID" required placeholder="Enter class ID (e.g., G-1_S-1_2024)">
+
+                    <label for="subjectID">Subject ID:</label>
+                    <input type="text" id="subjectID" name="subjectID" placeholder="Optional">
+
+                    <button type="submit">Create Class</button>
+                </form>
+            </section>
+
+            <section id="deleteClass" class="section">
+                <form id="deleteClassForm" action="delete_class.php" method="POST">
+                    <h3>Delete Class</h3>
+                    <p>Select the year and class to delete.</p>
+                    
+                    <div class="delete-class-form">
+                        <label for="selectYear">Select Year:</label>
+                        <select id="selectYear" name="selectYear" class="input-box" required>
+                            <option value="" disabled selected>Select Year</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <!-- Add more years as needed -->
+                        </select>
+
+                        <label for="selectClass">Select Class:</label>
+                        <select id="selectClass" name="selectClass" class="input-box" required>
+                            <option value="" disabled selected>Select Class</option>
+                            <option value="G-1_S-1">G-1_S-1</option>
+                            <option value="G-1_S-2">G-1_S-2</option>
+                            <option value="G-2_S-1">G-2_S-1</option>
+                            <!-- Add more classes as needed -->
+                        </select>
+                    </div>
+
+                    <button id="deleteClassButton" class="btn delete-btn" type="submit">Delete Class</button>
+                </form>
+            </section>
+
 
 
 
