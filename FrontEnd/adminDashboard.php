@@ -189,10 +189,10 @@ include('profile_data.php');
                 <form id="deleteAccountForm">
                     <label for="userIdInput">Enter User ID:</label>
                     <input type="text" id="userIdInput" name="userId" placeholder="Enter User ID" required>
-                    <button type="button" id="searchButton">Search</button>
+                    <button type="button" id="deleteAccount_searchButton">Search</button>
                     <div id="userInfo" style="margin-top: 10px;">
                         <p><strong>User Name:</strong> <span id="userName">N/A</span></p>
-                        <button type="button" id="deleteButton" style="background-color: red; color: white;">Delete</button>
+                        <button type="button" id="deleteAccount_deleteButton" style="background-color: red; color: white;">Delete</button>
                     </div>
                 </form>
             </section>

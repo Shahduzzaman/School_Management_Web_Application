@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showSection('overview');
 });
 
-document.getElementById('searchButton').addEventListener('click', function () {
+document.getElementById('deleteAccount_searchButton').addEventListener('click', function () {
     const userId = document.getElementById('userIdInput').value;
 
     if (!userId) {
@@ -19,7 +19,6 @@ document.getElementById('searchButton').addEventListener('click', function () {
         return;
     }
 
-    // AJAX Request to Search User
     fetch('delete_account.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -38,11 +37,10 @@ document.getElementById('searchButton').addEventListener('click', function () {
         .catch(error => console.error('Error:', error));
 });
 
-document.getElementById('deleteButton').addEventListener('click', function () {
+document.getElementById('deleteAccount_deleteButton').addEventListener('click', function () {
     const userId = document.getElementById('userIdInput').value;
 
     if (confirm(`Are you sure you want to delete the user?`)) {
-        // AJAX Request to Delete User
         fetch('delete_account.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
