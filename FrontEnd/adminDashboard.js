@@ -11,6 +11,56 @@ document.addEventListener("DOMContentLoaded", () => {
     showSection('overview');
 });
 
+document.getElementById('searchButton').addEventListener('click', function () {
+    const userId = document.getElementById('userIdInput').value;
+
+    if (!userId) {
+        alert('Please enter a User ID.');
+        return;
+    }
+
+    // AJAX Request to Search User
+    fetch('delete_account.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({ action: 'search', userId: userId }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                document.getElementById('userName').textContent = data.user_name;
+                document.getElementById('userInfo').style.display = 'block';
+            } else {
+                alert(data.message || 'Error occurred.');
+                document.getElementById('userInfo').style.display = 'none';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+document.getElementById('deleteButton').addEventListener('click', function () {
+    const userId = document.getElementById('userIdInput').value;
+
+    if (confirm(`Are you sure you want to delete the user?`)) {
+        // AJAX Request to Delete User
+        fetch('delete_account.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ action: 'delete', userId: userId }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert(data.message);
+                    document.getElementById('deleteAccountForm').reset();
+                    document.getElementById('userInfo').style.display = 'none';
+                } else {
+                    alert(data.message || 'Error occurred.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+});
 
 
 
