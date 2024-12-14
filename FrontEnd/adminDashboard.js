@@ -79,7 +79,6 @@ function fetchStudentProfile() {
             if (data.error) {
                 alert(data.error);
             } else {
-                // Populate the profile fields
                 document.getElementById('student-name').innerText = data.user.Name || '-';
                 document.getElementById('user-id').innerText = data.user.UserID || '-';
                 document.getElementById('date-of-birth').innerText = data.user.DateOfBirth || '-';
@@ -90,9 +89,8 @@ function fetchStudentProfile() {
                 document.getElementById('permanent-address').innerText = data.user.PermanentAddress || '-';
                 document.getElementById('student-profile-picture').src = data.user.Picture || 'path/to/default-profile.jpg';
 
-                // Populate results
                 const resultsTable = document.querySelector('#examResults tbody');
-                resultsTable.innerHTML = ''; // Clear old data
+                resultsTable.innerHTML = ''; 
 
                 data.results.forEach((result, index) => {
                     const row = `
@@ -112,13 +110,11 @@ function fetchStudentProfile() {
 }
 
 function closeMessage(type) {
-    // Hide the message element
     var messageElement = document.getElementById(type + '-message');
     if (messageElement) {
         messageElement.style.display = "none";
     }
 
-    // Send AJAX request to remove message from the session
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "remove_message.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
