@@ -230,10 +230,10 @@ include('profile_data.php');
                             <?php
                             include('connect_db.php');
                             try {
-                                $query = "SELECT ClassID, ClassName FROM class";
+                                $query = "SELECT ClassID FROM class";
                                 $stmt = $pdo->query($query);
                                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                    echo "<option value='" . $row['ClassID'] . "'>" . $row['ClassID'] . " - " . $row['ClassName'] . "</option>";
+                                    echo "<option value='" . $row['ClassID'] . "'>" . $row['ClassID'] ;
                                 }
                             } catch (PDOException $e) {
                                 echo "<option value='' disabled>Error loading classes.</option>";
@@ -431,25 +431,24 @@ include('profile_data.php');
                 <h3>Student Profile</h3>
                 <div id="studentSearch">
                     <label for="searchStudentId">Enter Student ID:</label>
-                    <input type="text" id="searchStudentId" placeholder="Student ID">
+                    <input type="text" id="stdP_searchID" placeholder="Student ID">
                     <br>
                     <label for="classSelect">Enter Class:</label>
-                    <select id="classSelect">
-                        <option value="" disabled selected>Select Class</option>
-                        <option value="pre-school">Pre-School</option>
-                        <option value="play">Play</option>
-                        <option value="nursery">Nursery</option>
-                        <option value="grade-1">Grade 1</option>
-                        <option value="2">Grade 2</option>
-                        <option value="grade-3">Grade 3</option>
-                        <option value="grade-4">Grade 4</option>
-                        <option value="grade-5">Grade 5</option>
-                        <option value="grade-6">Grade 6</option>
-                        <option value="grade-7">Grade 7</option>
-                        <option value="grade-8">Grade 8</option>
-                        <option value="grade-9">Grade 9</option>
-                        <option value="grade-10">Grade 10</option>
-                    </select>
+                    <select id="selectClass" name="selectClass" class="input-box" required>
+                            <option value="" disabled selected>Select Class</option>
+                            <?php
+                            include('connect_db.php');
+                            try {
+                                $query = "SELECT ClassID FROM student WHERE UserID = :stdP_searchID" ;
+                                $stmt = $pdo->query($query);
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    echo "<option value='" . $row['ClassID'] . "'>" . $row['ClassID'] ;
+                                }
+                            } catch (PDOException $e) {
+                                echo "<option value='' disabled>Error loading classes.</option>";
+                            }
+                            ?>
+                        </select>
                     <br>
                     <button type="button" onclick="fetchStudentProfile()">Search</button>
                 </div>
