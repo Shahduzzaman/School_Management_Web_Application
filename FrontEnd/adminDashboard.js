@@ -159,6 +159,70 @@ document.getElementById('createSubjectButton').addEventListener('click', functio
         });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const subjectDropdown = document.getElementById('subjectDropdown');
+    const formMessage = document.getElementById('deleteSubjformMsg');
+
+    // Populate dropdown with SubjectID and SubjectName
+    fetch('get_subjects.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                data.subjects.forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject.SubjectID;
+                    option.textContent = `${subject.SubjectID} - ${subject.SubjectName}`;
+                    subjectDropdown.appendChild(option);
+                });
+            } else {
+                formMessage.textContent = data.message || 'Failed to load subjects.';
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            formMessage.textContent = 'Error occurred: ' + error.message;
+            formMessage.className = 'error';
+            formMessage.style.display = 'block';
+        });
+
+    // Handle delete action
+    document.getElementById('deleteSubjectButton').addEventListener('click', function () {
+        const subjectId = subjectDropdown.value;
+
+        if (!subjectId) {
+            formMessage.textContent = 'Please select a subject to delete.';
+            formMessage.className = 'error';
+            formMessage.style.display = 'block';
+            return;
+        }
+
+        fetch('delete_subject.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ subjectId: subjectId }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    formMessage.textContent = 'Subject deleted successfully!';
+                    formMessage.className = 'success';
+                    formMessage.style.display = 'block';
+                    subjectDropdown.querySelector(`option[value="${subjectId}"]`).remove();
+                } else {
+                    formMessage.textContent = data.message || 'Failed to delete the subject.';
+                    formMessage.className = 'error';
+                    formMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                formMessage.textContent = 'Error occurred: ' + error.message;
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+            });
+    });
+});
+
 
 function logOut() {
     if (confirm("Are you sure you want to log out?")) {

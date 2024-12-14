@@ -1,0 +1,19 @@
+<?php
+include 'connect_db.php';
+
+$response = ['status' => '', 'subjects' => []];
+
+try {
+    $stmt = $pdo->query("SELECT SubjectID, SubjectName FROM subject");
+    $subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $response['status'] = 'success';
+    $response['subjects'] = $subjects;
+} catch (PDOException $e) {
+    $response['status'] = 'error';
+    $response['message'] = 'Database error: ' . $e->getMessage();
+}
+
+header('Content-Type: application/json');
+echo json_encode($response);
+?>

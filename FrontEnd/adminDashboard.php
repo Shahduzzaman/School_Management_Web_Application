@@ -259,6 +259,19 @@ include('profile_data.php');
                 <div id="createSubjformMsg" style="display: none; margin-top: 10px;"></div>
             </section>
 
+            <section id="deleteSubject" class="section">
+                <h3>Delete Subject</h3>
+                <form id="deleteSubjectForm">
+                    <label for="subjectDropdown">Select Subject:</label>
+                    <select id="subjectDropdown" name="subjectId" required>
+                        <option value="">-- Select Subject --</option>
+                    </select>
+                    <button type="button" id="deleteSubjectButton">Delete Subject</button>
+                </form>
+                <div id="deleteSubjformMsg" style="display: none; margin-top: 10px;"></div>
+            </section>
+
+
 
 
             <section id="attendance" class="section">
