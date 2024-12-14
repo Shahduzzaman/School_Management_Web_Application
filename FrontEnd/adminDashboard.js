@@ -229,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const subjectDropdown = document.getElementById('subjectDropdown');
     const formMessage = document.getElementById('assignSubjformMsg');
 
-    // Populate Class Dropdown
     fetch('get_classes.php')
         .then(response => response.json())
         .then(data => {
@@ -252,15 +251,12 @@ document.addEventListener('DOMContentLoaded', function () {
             formMessage.style.display = 'block';
         });
 
-    // Populate Subject Dropdown
     fetch('get_subjects.php')
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                // Clear existing options
                 subjectDropdown.innerHTML = '<option value="">-- Select Subject --</option>';
 
-                // Add new options to the dropdown
                 data.subjects.forEach(subject => {
                     const option = document.createElement('option');
                     option.value = subject.SubjectID;
@@ -322,7 +318,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const classSubjectsBody = document.getElementById('classSubjectsBody');
     const formMessage = document.getElementById('viewClassMsg');
 
-    // Populate Class Dropdown
     fetch('get_classes.php')
         .then(response => response.json())
         .then(data => {
@@ -345,7 +340,6 @@ document.addEventListener('DOMContentLoaded', function () {
             formMessage.style.display = 'block';
         });
 
-    // Handle View Subjects Button
     document.getElementById('viewClassButton').addEventListener('click', function () {
         const classId = classDropdown.value;
 
@@ -356,20 +350,16 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        // Fetch subjects and class information
         fetch(`view_class_subjects.php?classId=${classId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    // Clear any existing rows in the table body
                     classSubjectsBody.innerHTML = '';
 
-                    // Add ClassID and ClassName as the first row
                     const classRow = document.createElement('tr');
                     classRow.innerHTML = `<td colspan="1"><strong>${data.classInfo.ClassID} - ${data.classInfo.ClassName}</strong></td>`;
                     classSubjectsBody.appendChild(classRow);
 
-                    // Add subjects assigned to the class
                     if (data.subjects.length > 0) {
                         data.subjects.forEach(subject => {
                             const row = document.createElement('tr');

@@ -9,7 +9,6 @@ if (!$classId) {
 }
 
 try {
-    // Fetch class information
     $classStmt = $pdo->prepare("SELECT ClassID, ClassName FROM class WHERE ClassID = :classId");
     $classStmt->execute(['classId' => $classId]);
     $classInfo = $classStmt->fetch(PDO::FETCH_ASSOC);
@@ -19,7 +18,6 @@ try {
         exit();
     }
 
-    // Fetch subjects for the class, including SubjectName
     $subjectStmt = $pdo->prepare("
         SELECT cs.SubjectID, s.SubjectName 
         FROM class_subject cs
