@@ -228,7 +228,6 @@ include('profile_data.php');
                         <select id="selectClass" name="selectClass" class="input-box" required>
                             <option value="" disabled selected>Select Class</option>
                             <?php
-                            // Fetch the available classes from the database
                             include('connect_db.php');
                             try {
                                 $query = "SELECT ClassID, ClassName FROM class";
@@ -242,7 +241,6 @@ include('profile_data.php');
                             ?>
                         </select>
                     </div>
-
                     <button id="deleteClassButton" class="btn delete-btn" type="submit">Delete Class</button>
                 </form>
             </section>
