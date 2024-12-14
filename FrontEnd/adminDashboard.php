@@ -29,15 +29,11 @@ include('profile_data.php');
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#">Class</a>
+                    <a href="#">Class & Subject</a>
                     <ul class="submenu">
                         <li><a href="#" onclick="showSection('createClass')">Create Class</a></li>
                         <li><a href="#" onclick="showSection('deleteClass')">Delete Class</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#">Subject</a>
-                    <ul class="submenu">
+                        <li><a href="#" onclick="showSection('viewClass')">View Class</a></li>
                         <li><a href="#" onclick="showSection('createSubject')">Create Subject</a></li>
                         <li><a href="#" onclick="showSection('assignSubject')">Assign Subject</a></li>
                         <li><a href="#" onclick="showSection('deleteSubject')">Delete Subject</a></li>
@@ -55,7 +51,7 @@ include('profile_data.php');
                     <a href="#">Profile</a>
                     <ul class="submenu">
                         <li><a href="#" onclick="showSection('profile')">My Profile</a></li>
-                        <li><a href="#" onclick="showSection('studentProfile')">View Profile</a></li>
+                        <li><a href="#" onclick="showSection('studentProfile')">View Student Profile</a></li>
                     </ul>
                 </li>
                 <li><a href="#" onclick="logOut()">Log Out</a></li>
@@ -245,6 +241,34 @@ include('profile_data.php');
                 </form>
             </section>
 
+            <section id="viewClass" class="section">
+                <h3>View Classes</h3>
+                <form id="viewClassForm">
+                    <label for="classDropdown">Select Class:</label>
+                    <select id="classDropdown" name="classId" required>
+                        <option value="">-- Select Class --</option>
+                        <!-- Options will be populated dynamically -->
+                    </select>
+                    <button type="button" id="viewClassButton">View Subjects</button>
+                </form>
+
+                <div id="classSubjectsTable" style="display: none; margin-top: 20px;">
+                    <h4>Class and Assigned Subjects</h4>
+                    <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; text-align: left;">
+                        <tbody id="classSubjectsBody">
+                            <!-- First row: ClassID & ClassName -->
+                            <!-- Subsequent rows: Assigned Subjects -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="viewClassMsg" style="display: none; margin-top: 10px;"></div>
+            </section>
+
+
+
+
+
             <section id="createSubject" class="section">
                 <h3>Create Subject</h3>
                 <form id="createSubjectForm">
@@ -290,9 +314,7 @@ include('profile_data.php');
                 <div id="deleteSubjformMsg" style="display: none; margin-top: 10px;"></div>
             </section>
 
-
-
-
+            
             <section id="attendance" class="section">
                 <h3>Teacher Attendance</h3>
                 <p>Manage and review attendance records for teachers here.</p>

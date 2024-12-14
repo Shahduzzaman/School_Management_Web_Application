@@ -692,6 +692,99 @@ button[type="submit"]:hover, button:hover {
     background-color: #4768d6;
 }
 
+
+/* View Class Section */
+#viewClassForm {
+    margin: 20px auto;
+    width: 50%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#viewClassForm label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+#viewClassForm select,
+#viewClassForm button {
+    width: 55%;
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#viewClassForm button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#viewClassForm button:hover {
+    background-color: #45a049;
+}
+
+#classSubjectsTable {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 60%; 
+    margin: 20px auto; 
+    border: 1px solid #ddd;
+}
+
+#classSubjectsTable h4 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+}
+
+#classSubjectsTable th,
+#classSubjectsTable td {
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#classSubjectsTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+#classSubjectsBody tr:first-child {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+#viewClassMsg {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    width: 50%; 
+    margin: 10px auto;
+    text-align: center;
+}
+
+#viewClassMsg.error {
+    color: white;
+    background-color: #f44336;
+}
+
+#viewClassMsg.success {
+    color: white;
+    background-color: #4CAF50;
+}
+
 /* Create Subject Section */
 #createSubject {
     padding: 20px;

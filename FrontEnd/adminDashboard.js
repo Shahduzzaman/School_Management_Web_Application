@@ -316,6 +316,88 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const classDropdown = document.getElementById('classDropdown');
+    const classSubjectsTable = document.getElementById('classSubjectsTable');
+    const classSubjectsBody = document.getElementById('classSubjectsBody');
+    const formMessage = document.getElementById('viewClassMsg');
+
+    // Populate Class Dropdown
+    fetch('get_classes.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                data.classes.forEach(cls => {
+                    const option = document.createElement('option');
+                    option.value = cls.ClassID;
+                    option.textContent = `${cls.ClassID} - ${cls.ClassName}`;
+                    classDropdown.appendChild(option);
+                });
+            } else {
+                formMessage.textContent = data.message || 'Failed to load classes.';
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            formMessage.textContent = 'Error occurred: ' + error.message;
+            formMessage.className = 'error';
+            formMessage.style.display = 'block';
+        });
+
+    // Handle View Subjects Button
+    document.getElementById('viewClassButton').addEventListener('click', function () {
+        const classId = classDropdown.value;
+
+        if (!classId) {
+            formMessage.textContent = 'Please select a class.';
+            formMessage.className = 'error';
+            formMessage.style.display = 'block';
+            return;
+        }
+
+        // Fetch subjects and class information
+        fetch(`view_class_subjects.php?classId=${classId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    // Clear any existing rows in the table body
+                    classSubjectsBody.innerHTML = '';
+
+                    // Add ClassID and ClassName as the first row
+                    const classRow = document.createElement('tr');
+                    classRow.innerHTML = `<td colspan="1"><strong>${data.classInfo.ClassID} - ${data.classInfo.ClassName}</strong></td>`;
+                    classSubjectsBody.appendChild(classRow);
+
+                    // Add subjects assigned to the class
+                    if (data.subjects.length > 0) {
+                        data.subjects.forEach(subject => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `<td>${subject.SubjectID} - ${subject.SubjectName}</td>`;
+                            classSubjectsBody.appendChild(row);
+                        });
+                    } else {
+                        const noSubjectsRow = document.createElement('tr');
+                        noSubjectsRow.innerHTML = `<td>No subjects assigned to this class.</td>`;
+                        classSubjectsBody.appendChild(noSubjectsRow);
+                    }
+
+                    classSubjectsTable.style.display = 'block';
+                    formMessage.style.display = 'none';
+                } else {
+                    formMessage.textContent = data.message || 'Failed to fetch subjects.';
+                    formMessage.className = 'error';
+                    formMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                formMessage.textContent = 'Error occurred: ' + error.message;
+                formMessage.className = 'error';
+                formMessage.style.display = 'block';
+            });
+    });
+});
+
 
 
 function logOut() {
