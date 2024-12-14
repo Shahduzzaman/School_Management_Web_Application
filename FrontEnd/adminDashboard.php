@@ -189,20 +189,38 @@ include('profile_data.php');
             </section>
 
             <section id="createClass" class="section">
+                <div id="message">
+                    <?php if (isset($_SESSION['error'])): ?>
+                        <p class="alert error"><?php echo $_SESSION['error']; ?></p>
+                    <?php endif; ?>
+
+                    <?php if (isset($_SESSION['success'])): ?>
+                        <p class="alert success"><?php echo $_SESSION['success']; ?></p>
+                    <?php endif; ?>
+                </div>
+
                 <form id="createClassForm" action="create_class.php" method="POST">
                     <h3>Create Class</h3>
                     <p>Naming Convention: ClassName_Section_Year.</p>
-                    <p>Example: G-1_S-1_2024</p>
+                    <p>Example: G1_S1_2024</p>
 
+                    <!-- Class ID Input -->
                     <label for="classID">Class ID:</label>
                     <input type="text" id="classID" name="classID" required placeholder="Enter class ID (e.g., G-1_S-1_2024)">
 
+                    <!-- Class Name Input -->
+                    <label for="className">Class Name:</label>
+                    <input type="text" id="className" name="className" required placeholder="Enter Class Name (e.g., Grade 1)">
+
+                    <!-- Subject ID Input -->
                     <label for="subjectID">Subject ID:</label>
                     <input type="text" id="subjectID" name="subjectID" placeholder="Optional">
 
+                    <!-- Submit Button -->
                     <button type="submit">Create Class</button>
                 </form>
             </section>
+
 
             <section id="deleteClass" class="section">
                 <form id="deleteClassForm" action="delete_class.php" method="POST">

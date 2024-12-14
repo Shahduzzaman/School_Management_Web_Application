@@ -10,7 +10,10 @@ function showSection(sectionId) {
 document.addEventListener("DOMContentLoaded", () => {
     showSection('fees');
 });
+
+
 function logOut() {
-    alert("Logging out...");
-    window.location.href = "login.php";
+    if (confirm("Are you sure you want to log out?")) {
+        window.location.href = "logout.php";
+    }
 }

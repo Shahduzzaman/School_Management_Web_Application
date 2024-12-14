@@ -1,5 +1,17 @@
 <?php
 session_start();
+$inactive = 900;
+
+if (isset($_SESSION['last_activity'])) {
+    if (time() - $_SESSION['last_activity'] > $inactive) {
+        session_unset();
+        session_destroy();
+        header("Location: login.php");
+        exit();
+    }
+}
+
+$_SESSION['last_activity'] = time();
 ?>
 
 <!DOCTYPE html>
@@ -20,12 +32,11 @@ session_start();
 
             <?php if (isset($_SESSION['error'])): ?>
                 <div class="alert">
-                <?php echo $_SESSION['error']; ?>
+                    <?php echo $_SESSION['error']; ?>
                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 </div>
                 <?php unset($_SESSION['error']); ?>
             <?php endif; ?>
-
 
             <form action="login_db.php" method="post">
                 <div class="input-group">
@@ -46,8 +57,6 @@ session_start();
     <div data-include-footer></div>
     <script src="includeFooter.js" defer></script>
     <script src="loginScript.js"></script>
-
-
 
 </body>
 </html>

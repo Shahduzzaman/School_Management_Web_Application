@@ -595,6 +595,20 @@ button[type="submit"]:hover, button:hover {
     background-color: #4768d6;
 }
 
+.alert {
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.error {
+    background-color: #ffeb3d;
+    color: #d32f2f;
+}
+.success {
+    background-color: #c8e6c9;
+    color: #256029;
+}
 /* Delete Class Section */
 #deleteClassForm {
     max-width: 600px;
