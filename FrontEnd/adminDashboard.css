@@ -886,8 +886,8 @@ button[type="submit"]:hover, button:hover {
     font-size: 0.9rem;
 }
 
-#classDropdown,
-#subjectDropdown {
+#classId,
+#subjectId {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
