@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'connect_db.php';
 
 $response = ['status' => '', 'message' => ''];
@@ -8,8 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $subjectId = isset($_POST['subjectId']) ? trim($_POST['subjectId']) : '';
 
     if (empty($classId) || empty($subjectId)) {
-        $response['status'] = 'error';
-        $response['message'] = 'Class ID and Subject ID are required.';
+        $_SESSION['error'] = 'Class ID and Subject ID are required.';
+        header('Location: adminDashboard.php');
+        exit();
     } else {
         try {
             $stmt = $pdo->prepare("INSERT INTO class_subject (ClassID, SubjectID) VALUES (:classId, :subjectId)");
@@ -17,27 +19,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->bindParam(':subjectId', $subjectId);
 
             if ($stmt->execute()) {
-                $response['status'] = 'success';
-                $response['message'] = 'Subject assigned successfully.';
+                $_SESSION['success'] = 'Subject assigned successfully.';
+                header('Location: adminDashboard.php');
+                exit();
             } else {
-                $response['status'] = 'error';
-                $response['message'] = 'Failed to assign subject.';
+                $_SESSION['error'] = 'Failed to assign subject.';
+                header('Location: adminDashboard.php');
+                exit();
             }
         } catch (PDOException $e) {
             if ($e->getCode() == 23000) {
-                $response['status'] = 'error';
-                $response['message'] = 'Subject is already assigned to this class.';
+                $_SESSION['error'] = 'Subject is already assigned to this class.';
+                header('Location: adminDashboard.php');
+                exit();
             } else {
-                $response['status'] = 'error';
-                $response['message'] = 'Database error: ' . $e->getMessage();
+                $_SESSION['error'] = 'Database error: ' . $e->getMessage();
+                header('Location: adminDashboard.php');
+                exit();
             }
         }
     }
 } else {
-    $response['status'] = 'error';
-    $response['message'] = 'Invalid request method.';
+    $_SESSION['error'] = 'Invalid request method.';
+    header('Location: adminDashboard.php');
+    exit();
 }
-
-header('Content-Type: application/json');
-echo json_encode($response);
 ?>

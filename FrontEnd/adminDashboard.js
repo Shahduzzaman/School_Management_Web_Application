@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const classDropdown = document.getElementById('classId');
     const subjectDropdown = document.getElementById('subjectId');
-    const responseMessage = document.getElementById('responseMessage');
+    const responseMessage = document.getElementById('message');
 
     // Fetch classes
     fetch('get_classes.php')
