@@ -8,15 +8,12 @@ if (!isset($_SESSION['UserID'])) {
 }
 
 $UserID = $_SESSION['UserID'];
-// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Get input values
     $currentPassword = trim($_POST['current-password']);
     $newPassword = trim($_POST['new-password']);
     $reEnterPassword = trim($_POST['re-enter-password']);
 
     try {
-        // Fetch current password from the database
         $query = "SELECT `Password` FROM `user` WHERE `UserID` = :UserID";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':UserID', $UserID);
@@ -31,14 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $currentPasswordHash = $user['Password'];
 
-        // Verify the current password
         if (password_verify($currentPassword, $currentPasswordHash)) {
-            // Check if new passwords match
             if ($newPassword === $reEnterPassword) {
-                // Hash the new password before storing it
                 $newPasswordHash = password_hash($newPassword, PASSWORD_DEFAULT);
 
-                // Update password in the database
                 $updateQuery = "UPDATE `user` SET `Password` = :newPassword WHERE `UserID` = :UserID";
                 $updateStmt = $pdo->prepare($updateQuery);
                 $updateStmt->bindParam(':newPassword', $newPasswordHash);

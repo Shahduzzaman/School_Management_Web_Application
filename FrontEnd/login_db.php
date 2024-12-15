@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = trim($_POST['password']);
 
     try {
-
         $query = "SELECT `UserID`, `Password`, `role` FROM `user` WHERE `UserID` = :UserID";
         $stmt = $pdo->prepare($query);
         $stmt->bindParam(':UserID', $userID);
@@ -42,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     header('Location: login.php');
                     exit();
                 }
-                
             } else {
                 $_SESSION['error'] = 'Incorrect password';
                 header('Location: login.php');

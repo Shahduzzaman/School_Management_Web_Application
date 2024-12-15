@@ -1,8 +1,6 @@
 <?php
-// Include database connection
 include('connect_db.php');
 
-// Start session to access user ID
 session_start();
 if (!isset($_SESSION['UserID'])) {
     echo "Please log in to view your profile.";
@@ -12,7 +10,6 @@ if (!isset($_SESSION['UserID'])) {
 $UserID = $_SESSION['UserID'];
 
 try {
-    // Fetch user data from the database
     $query = "SELECT `UserID`, `Name`, `DateOfBirth`, `FatherName`, `MotherName`, `GuardianPhoneNumber`, 
                      `PresentAddress`, `PermanentAddress`, `Picture` 
               FROM `user` 

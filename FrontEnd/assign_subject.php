@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $response['message'] = 'Failed to assign subject.';
             }
         } catch (PDOException $e) {
-            if ($e->getCode() == 23000) { // Handle duplicate entry error
+            if ($e->getCode() == 23000) {
                 $response['status'] = 'error';
                 $response['message'] = 'Subject is already assigned to this class.';
             } else {

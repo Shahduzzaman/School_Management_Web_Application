@@ -14,11 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        // Prepare the SQL query
         $query = "INSERT INTO `class` (`ClassID`, `ClassName`, `SubjectID`) VALUES (:classID, :className, :subjectID)";
         $stmt = $pdo->prepare($query);
 
-        // Bind the form values
         $stmt->bindParam(':classID', $classID);
         $stmt->bindParam(':className', $className);
         $stmt->bindParam(':subjectID', $subjectID);

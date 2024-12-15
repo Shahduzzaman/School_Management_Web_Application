@@ -1,7 +1,6 @@
 <?php
 session_start();
 $inactive = 900;
-
 if (isset($_SESSION['last_activity'])) {
     if (time() - $_SESSION['last_activity'] > $inactive) {
         session_unset();
@@ -23,7 +22,6 @@ $_SESSION['last_activity'] = time();
     <link rel="stylesheet" href="loginStyle.css">
 </head>
 <body>
-
     <div class="login-container">
         <div class="login-box">
             <div class="logo">
@@ -53,10 +51,8 @@ $_SESSION['last_activity'] = time();
             </form>
         </div>
     </div>
-
     <div data-include-footer></div>
     <script src="includeFooter.js" defer></script>
     <script src="loginScript.js"></script>
-
 </body>
 </html>

@@ -1,21 +1,17 @@
 <?php
-// Include the database connection file
 include 'connect_db.php';
 
-// Initialize response array
 $response = [
     'status' => '',
     'message' => '',
     'user_name' => ''
 ];
 
-// Check if the form is submitted for a search
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         $action = $_POST['action'];
         $userId = $_POST['userId'];
 
-        // Search for the user
         if ($action === 'search' && !empty($userId)) {
             try {
                 $stmt = $pdo->prepare("SELECT name FROM user WHERE UserID = :id");
@@ -35,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // Delete the user
         if ($action === 'delete' && !empty($userId)) {
             try {
                 $stmt = $pdo->prepare("DELETE FROM user WHERE UserID = :id");
@@ -56,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Return response as JSON
 header('Content-Type: application/json');
 echo json_encode($response);
 exit();

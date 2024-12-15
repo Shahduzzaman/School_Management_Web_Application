@@ -2,12 +2,10 @@
 include 'connect_db.php';
 
 $classId = $_GET['classId'] ?? '';
-
 if (!$classId) {
     echo json_encode(['status' => 'error', 'message' => 'Class ID is required.']);
     exit();
 }
-
 try {
     $classStmt = $pdo->prepare("SELECT ClassID, ClassName FROM class WHERE ClassID = :classId");
     $classStmt->execute(['classId' => $classId]);
@@ -17,7 +15,6 @@ try {
         echo json_encode(['status' => 'error', 'message' => 'Class not found.']);
         exit();
     }
-
     $subjectStmt = $pdo->prepare("
         SELECT cs.SubjectID, s.SubjectName 
         FROM class_subject cs

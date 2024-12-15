@@ -173,23 +173,13 @@ document.getElementById("leave-application-form").addEventListener("submit", fun
     alert("Your leave application has been sent!");
 });
 
-// Retrieve user ID from session storage
 const userId = sessionStorage.getItem("userId");
 
-// if (userId) {
-//     loadProfileData(userId); // Fetch profile data if userId is available
-// } else {
-//     // If no userId is found, redirect to the login page
-//     window.location.href = "/login.html";
-// }
-
-// Function to load and display profile data
 async function loadProfileData(userId) {
     try {
         const response = await fetch(`/api/getUserProfile?userId=${userId}`);
         const data = await response.json();
 
-        // Assuming the API returns a success status and the profile data
         if (response.ok && data) {
             document.getElementById("student-name").textContent = data.name || "N/A";
             document.getElementById("user-id").textContent = userId;
@@ -200,7 +190,6 @@ async function loadProfileData(userId) {
             document.getElementById("present-address").textContent = data.presentAddress || "N/A";
             document.getElementById("permanent-address").textContent = data.permanentAddress || "N/A";
             
-            // Set profile picture if provided by the database
             if (data.profilePicture) {
                 document.getElementById("profile-picture").src = data.profilePicture;
             }
@@ -222,13 +211,11 @@ document.getElementById("change-password-form").addEventListener("submit", async
     const newPassword = document.getElementById("new-password").value;
     const reEnterPassword = document.getElementById("re-enter-password").value;
 
-    // Validate new password match
     if (newPassword !== reEnterPassword) {
         alert("New passwords do not match.");
         return;
     }
 
-    // Call the API to change the password
     try {
         const response = await fetch("/api/changePassword", {
             method: "POST",
@@ -244,7 +231,6 @@ document.getElementById("change-password-form").addEventListener("submit", async
         
         if (response.ok && result.success) {
             alert("Password changed successfully.");
-            // Optionally, clear the form
             document.getElementById("change-password-form").reset();
         } else {
             alert(result.message || "Failed to change password. Please try again.");
