@@ -250,27 +250,40 @@ document.addEventListener('DOMContentLoaded', function () {
             responseMessage.className = 'error';
         });
 
-    // Fetch subjects
-    fetch('get_subjects.php')
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                data.subjects.forEach(subject => {
-                    const option = document.createElement('option');
-                    option.value = subject.SubjectID;
-                    option.textContent = `${subject.SubjectID} - ${subject.SubjectName}`;
-                    subjectDropdown.appendChild(option);
-                });
-            } else {
-                responseMessage.textContent = data.message || 'Failed to load subjects.';
+    // Handle class selection to fetch subjects
+    classDropdown.addEventListener('change', function () {
+        const classId = classDropdown.value;
+        
+        if (!classId) {
+            // If no class is selected, clear the subject dropdown and exit
+            subjectDropdown.innerHTML = '<option value="">-- Select Subject --</option>';
+            return;
+        }
+
+        // Fetch subjects for the selected class
+        fetch('get_subjects.php?classId=' + classId)
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    subjectDropdown.innerHTML = '<option value="">-- Select Subject --</option>'; // Clear previous subjects
+                    data.subjects.forEach(subject => {
+                        const option = document.createElement('option');
+                        option.value = subject.SubjectID;
+                        option.textContent = `${subject.SubjectID} - ${subject.SubjectName}`;
+                        subjectDropdown.appendChild(option);
+                    });
+                } else {
+                    responseMessage.textContent = data.message || 'Failed to load subjects.';
+                    responseMessage.className = 'error';
+                }
+            })
+            .catch(error => {
+                responseMessage.textContent = 'Error loading subjects: ' + error.message;
                 responseMessage.className = 'error';
-            }
-        })
-        .catch(error => {
-            responseMessage.textContent = 'Error loading subjects: ' + error.message;
-            responseMessage.className = 'error';
-        });
+            });
+    });
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const classDropdown = document.getElementById('classDropdown');
