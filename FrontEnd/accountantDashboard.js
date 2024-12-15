@@ -8,7 +8,7 @@ function showSection(sectionId) {
     });
 }
 document.addEventListener("DOMContentLoaded", () => {
-    showSection('fees');
+    showSection('overview');
 });
 
 

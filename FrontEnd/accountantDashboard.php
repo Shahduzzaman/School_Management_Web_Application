@@ -12,7 +12,9 @@
             <div class="logo">
                 <img src="images/TESL_logo.png" alt="Logo">
             </div>
-            <h2>Accountant Dashboard</h2>
+            <a href="#" onclick="showSection('overview')" style="text-decoration: none;">
+                <h2>Accountant Dashboard</h2>
+            </a>
             <ul>
                 <li><a href="#" onclick="showSection('fees')">Tuition Fees</a></li>
                 <li><a href="#" onclick="showSection('reportsAnalytics')">Reports</a></li>
@@ -21,6 +23,25 @@
             </ul>
         </nav>
         <div class="content" id="content">
+            <section id="overview" class="section">
+                <h3>Dashboard Overview</h3>
+                <p>Overview of key metrics and statistics for quick insights.</p>
+                <div id="message">
+                    <?php if (isset($_SESSION['error'])): ?>
+                        <p class="alert error" id="error-message">
+                            <?php echo $_SESSION['error']; ?>
+                            <button class="close-btn" onclick="closeMessage('error')">×</button>
+                        </p>
+                    <?php endif; ?>
+
+                    <?php if (isset($_SESSION['success'])): ?>
+                        <p class="alert success" id="success-message">
+                            <?php echo $_SESSION['success']; ?>
+                            <button class="close-btn" onclick="closeMessage('success')">×</button>
+                        </p>
+                    <?php endif; ?>
+                </div>
+            </section>
 
             <section id="fees" class="section active">
                 <h3>Student Tuition Fees</h3>
