@@ -285,20 +285,26 @@ include('profile_data.php');
 
             <section id="assignSubject" class="section">
                 <h3>Assign Subject</h3>
-                <form id="assignSubjectForm">
-                    <label for="classDropdown">Select Class:</label>
-                    <select id="classDropdown" name="classId" required>
+                <form action="assign_subject.php" method="POST" id="assignSubjectForm">
+                    <!-- Class Dropdown -->
+                    <label for="classId">Select Class:</label>
+                    <select id="classId" name="classId" required>
                         <option value="">-- Select Class --</option>
+                        <!-- Options will be populated dynamically -->
                     </select>
 
-                    <label for="subjectDropdown">Select Subject:</label>
-                    <select id="subjectDropdown" name="subjectId" required>
+                    <!-- Subject Dropdown -->
+                    <label for="subjectId">Select Subject:</label>
+                    <select id="subjectId" name="subjectId" required>
                         <option value="">-- Select Subject --</option>
+                        <!-- Options will be populated dynamically -->
                     </select>
 
-                    <button type="button" id="assignSubjectButton">Assign Subject</button>
+                    <!-- Submit Button -->
+                    <button type="submit">Assign Subject</button>
                 </form>
-                <div id="assignSubjformMsg" style="display: none; margin-top: 10px;"></div>
+
+                <div id="responseMessage"></div>
             </section>
 
 

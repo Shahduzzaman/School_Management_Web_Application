@@ -225,10 +225,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const classDropdown = document.getElementById('classDropdown');
-    const subjectDropdown = document.getElementById('subjectDropdown');
-    const formMessage = document.getElementById('assignSubjformMsg');
+    const classDropdown = document.getElementById('classId');
+    const subjectDropdown = document.getElementById('subjectId');
+    const responseMessage = document.getElementById('responseMessage');
 
+    // Fetch classes
     fetch('get_classes.php')
         .then(response => response.json())
         .then(data => {
@@ -240,23 +241,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     classDropdown.appendChild(option);
                 });
             } else {
-                formMessage.textContent = data.message || 'Failed to load classes.';
-                formMessage.className = 'error';
-                formMessage.style.display = 'block';
+                responseMessage.textContent = data.message || 'Failed to load classes.';
+                responseMessage.className = 'error';
             }
         })
         .catch(error => {
-            formMessage.textContent = 'Error occurred: ' + error.message;
-            formMessage.className = 'error';
-            formMessage.style.display = 'block';
+            responseMessage.textContent = 'Error loading classes: ' + error.message;
+            responseMessage.className = 'error';
         });
 
+    // Fetch subjects
     fetch('get_subjects.php')
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                subjectDropdown.innerHTML = '<option value="">-- Select Subject --</option>';
-
                 data.subjects.forEach(subject => {
                     const option = document.createElement('option');
                     option.value = subject.SubjectID;
@@ -264,52 +262,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     subjectDropdown.appendChild(option);
                 });
             } else {
-                formMessage.textContent = data.message || 'Failed to load subjects.';
-                formMessage.className = 'error';
-                formMessage.style.display = 'block';
+                responseMessage.textContent = data.message || 'Failed to load subjects.';
+                responseMessage.className = 'error';
             }
         })
         .catch(error => {
-            formMessage.textContent = 'Error occurred: ' + error.message;
-            formMessage.className = 'error';
-            formMessage.style.display = 'block';
+            responseMessage.textContent = 'Error loading subjects: ' + error.message;
+            responseMessage.className = 'error';
         });
-
-    // Handle Assign Action
-    document.getElementById('assignSubjectButton').addEventListener('click', function () {
-        const classId = classDropdown.value;
-        const subjectId = subjectDropdown.value;
-
-        if (!classId || !subjectId) {
-            formMessage.textContent = 'Both Class and Subject must be selected.';
-            formMessage.className = 'error';
-            formMessage.style.display = 'block';
-            return;
-        }
-
-        fetch('assign_subject.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({ classId: classId, subjectId: subjectId }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    formMessage.textContent = 'Subject assigned successfully!';
-                    formMessage.className = 'success';
-                    formMessage.style.display = 'block';
-                } else {
-                    formMessage.textContent = data.message || 'Failed to assign subject.';
-                    formMessage.className = 'error';
-                    formMessage.style.display = 'block';
-                }
-            })
-            .catch(error => {
-                formMessage.textContent = 'Error occurred: ' + error.message;
-                formMessage.className = 'error';
-                formMessage.style.display = 'block';
-            });
-    });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
