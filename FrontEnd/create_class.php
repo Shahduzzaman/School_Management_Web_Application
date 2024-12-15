@@ -5,7 +5,7 @@ include('connect_db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $classID = trim($_POST['classID']);
     $className = trim($_POST['className']);
-    $subjectID = trim($_POST['subjectID']);
+    
 
     if (empty($classID) || empty($className)) {
         $_SESSION['error'] = 'Class ID and Class Name are required.';
@@ -14,12 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     try {
-        $query = "INSERT INTO `class` (`ClassID`, `ClassName`, `SubjectID`) VALUES (:classID, :className, :subjectID)";
+        $query = "INSERT INTO `class` (`ClassID`, `ClassName`) VALUES (:classID, :className)";
         $stmt = $pdo->prepare($query);
 
         $stmt->bindParam(':classID', $classID);
         $stmt->bindParam(':className', $className);
-        $stmt->bindParam(':subjectID', $subjectID);
 
         if ($stmt->execute()) {
             $_SESSION['success'] = "Class '$className' with ID '$classID' has been successfully created.";
