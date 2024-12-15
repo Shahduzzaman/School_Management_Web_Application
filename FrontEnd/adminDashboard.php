@@ -18,7 +18,9 @@ include('profile_data.php');
             <div class="logo">
                 <img src="images/TESL_logo.png" alt="Logo">
             </div>
-            <h2>Admin Dashboard</h2>
+            <a href="#" onclick="showSection('overview')" style="text-decoration: none;">
+                <h2>Admin Dashboard</h2>
+            </a>
             <ul>
                 <li class="dropdown">
                     <a href="#">User</a>

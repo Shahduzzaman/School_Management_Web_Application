@@ -12,7 +12,9 @@
             <div class="logo">
                 <img src="images/TESL_logo.png" alt="Logo">
             </div>
-            <h2>Moderator Dashboard</h2>
+            <a href="#" onclick="showSection('overview')" style="text-decoration: none;">
+                <h2>Moderator Dashboard</h2>
+            </a>
             <ul>
                 <li><a href="#" onclick="showSection('attendance')">Attendance</a></li>
                 <li><a href="#" onclick="showSection('createAccount')">Create Account</a></li>
@@ -23,6 +25,27 @@
             </ul>
         </nav>
         <div class="content" id="content">
+
+        <section id="overview" class="section">
+                <h3>Dashboard Overview</h3>
+                <p>Overview of key metrics and statistics for quick insights.</p>
+                <div id="message">
+                    <?php if (isset($_SESSION['error'])): ?>
+                        <p class="alert error" id="error-message">
+                            <?php echo $_SESSION['error']; ?>
+                            <button class="close-btn" onclick="closeMessage('error')">×</button>
+                        </p>
+                    <?php endif; ?>
+
+                    <?php if (isset($_SESSION['success'])): ?>
+                        <p class="alert success" id="success-message">
+                            <?php echo $_SESSION['success']; ?>
+                            <button class="close-btn" onclick="closeMessage('success')">×</button>
+                        </p>
+                    <?php endif; ?>
+                </div>
+            </section>
+
             <section id="attendance" class="section">
                 <h3>Teacher Attendance</h3>
                 <p>Manage and review attendance records for teachers here.</p>
