@@ -35,9 +35,9 @@ include('profile_data.php');
                     <ul class="submenu">
                         <li><a href="#" onclick="showSection('createClass')">Create Class</a></li>
                         <!-- <li><a href="#" onclick="showSection('deleteClass')">Delete Class</a></li> -->
-                        <li><a href="#" onclick="showSection('viewClass')">View Class</a></li>
                         <li><a href="#" onclick="showSection('createSubject')">Create Subject</a></li>
                         <li><a href="#" onclick="showSection('assignSubject')">Assign Subject</a></li>
+                        <li><a href="#" onclick="showSection('viewClass')">View Class & Subject</a></li>
                         <!-- <li><a href="#" onclick="showSection('deleteSubject')">Delete Subject</a></li> -->
                     </ul>
                 </li>
