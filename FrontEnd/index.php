@@ -14,8 +14,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#admission">Admission</a></li>
                 <li><a href="#administration">Administration</a></li>
-                <li><a href="#routine">Routine</a></li>
-                <li><a href="#results">Results</a></li>
+                <!-- <li><a href="#routine">Routine</a></li>
+                <li><a href="#results">Results</a></li> -->
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#rules">Rules & Regulations</a></li>
                 <li><a href="#contact">Contact Us</a></li>
@@ -146,7 +146,7 @@
             <a href="TESL_Rules_and_Regulation.pdf" download><h2>Download Rules & Regulations</h2></a>
         </div>
         <div class="content">
-            <p>The Oath</p>
+            <h2>The Oath</h2>
             <p>
                 I, the student of TESL, is pledging that it shall be the aim to keep the name and fame of TESL high up through flourishing my latent talent with the deep attention, self-confidence, courage, determination, honesty, punctuality, and hard work.
                 Pledging that it shall be the sacred duties to show punctuality in the rules and regulation of TESL.
