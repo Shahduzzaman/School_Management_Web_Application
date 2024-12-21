@@ -239,6 +239,21 @@ include('profile_data.php');
                 <!-- Change Password Section -->
                 <div class="change-password-section">
                     <h3>Change Password</h3>
+                    <div id="message">
+                        <?php if (isset($_SESSION['error'])): ?>
+                            <p class="alert error" id="error-message">
+                                <?php echo $_SESSION['error']; ?>
+                                <button class="close-btn" onclick="closeMessage('error')">×</button>
+                            </p>
+                        <?php endif; ?>
+
+                        <?php if (isset($_SESSION['success'])): ?>
+                            <p class="alert success" id="success-message">
+                                <?php echo $_SESSION['success']; ?>
+                                <button class="close-btn" onclick="closeMessage('success')">×</button>
+                            </p>
+                        <?php endif; ?>
+                    </div>     
                     <form id="change-password-form" action="change_password.php" method="POST">
                         <label for="current-password">Current Password</label>
                         <input type="password" id="current-password" name="current-password" required>

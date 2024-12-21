@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $updateStmt->bindParam(':UserID', $UserID);
 
                 if ($updateStmt->execute()) {
-                    echo "Password changed successfully.";
+                    $_SESSION['success'] = "Password changed successfully.";
+                    // echo "Password changed successfully.";
                 } else {
                     echo "Failed to change the password. Please try again.";
                 }
