@@ -463,7 +463,7 @@ include('profile_data.php');
 
                 <!-- Profile Picture -->
                 <div class="profile-picture-container">
-                    <img src="<?= isset($user['Picture']) && file_exists($user['Picture']) ? htmlspecialchars($user['Picture']) : 'path/to/default-profile.jpg' ?>" alt="Profile Picture" id="profile-picture" />
+                    <img src="fetch_image.php?UserID=<?= htmlspecialchars($UserID) ?>" alt="Profile Picture" id="profile-picture" />
                 </div>
 
                 <!-- Profile Information -->

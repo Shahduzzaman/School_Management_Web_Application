@@ -11,7 +11,7 @@ $UserID = $_SESSION['UserID'];
 
 try {
     $query = "SELECT `UserID`, `Name`, `DateOfBirth`, `FatherName`, `MotherName`, `GuardianPhoneNumber`, 
-                     `PresentAddress`, `PermanentAddress`, `Picture` 
+                     `PresentAddress`, `PermanentAddress` 
               FROM `user` 
               WHERE `UserID` = :UserID";
 
