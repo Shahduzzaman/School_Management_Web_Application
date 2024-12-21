@@ -9,7 +9,7 @@
 <body>
     <nav>
         <div class="nav-container">
-            <img src="images/TESL_logo.png" alt="TESL Logo" class="logo">
+            <img src="FrontEnd/images/TESL_logo.png" alt="TESL Logo" class="logo">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#admission">Admission</a></li>
@@ -19,7 +19,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#rules">Rules & Regulations</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-                <li><a href="login.php">TESL Portal</a></li>
+                <li><a href="FrontEnd/login.php">TESL Portal</a></li>
             </ul>
         </div>
     </nav>
