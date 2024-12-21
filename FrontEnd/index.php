@@ -97,7 +97,7 @@
     </section>
     
 
-    <section id="routine">
+    <!-- <section id="routine">
         <h2>Routine</h2>
         <p>Access our academic routines here.</p>
     </section>
@@ -115,7 +115,7 @@
             </div>
             <button class="arrow right-arrow" onclick="moveSlide('results', 1)">&#10095;</button>
         </div>
-    </section>
+    </section> -->
     
     <section id="gallery" class="carousel">
         <h2>Gallery</h2>

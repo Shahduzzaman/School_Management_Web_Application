@@ -1,3 +1,8 @@
+<?php
+include('connect_db.php');
+include('profile_data.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +25,7 @@
                 <li><a href="#" onclick="showSection('createAccount')">Create Account</a></li>
                 <li><a href="#" onclick="showSection('updateAccount')">Update User</a></li>
                 <li><a href="#" onclick="showSection('studentProfile')">View Profile</a></li>
-                <li><a href="#" onclick="showSection('myProfile')">My Profile</a></li>
+                <li><a href="#" onclick="showSection('profile')">My Profile</a></li>
                 <li><a href="#" onclick="logOut()">Log Out</a></li>
             </ul>
         </nav>
@@ -277,36 +282,40 @@
                 </div>
             </section>
             
-            <section id="myProfile" class="section">
+            <section id="profile" class="section">
                 <h3>My Profile</h3>
+
+                <!-- Profile Picture -->
                 <div class="profile-picture-container">
-                    <img src="path/to/profile-picture.jpg" alt="Profile Picture" id="profile-picture" />
+                    <img src="<?= isset($user['Picture']) && file_exists($user['Picture']) ? htmlspecialchars($user['Picture']) : 'path/to/default-profile.jpg' ?>" alt="Profile Picture" id="profile-picture" />
                 </div>
-            
+
+                <!-- Profile Information -->
                 <div class="profile-info">
-                    <div class="profile-item"><strong>Name:</strong> <span id="student-name"></span></div>
-                    <div class="profile-item"><strong>User ID:</strong> <span id="user-id"></span></div>
-                    <div class="profile-item"><strong>Date of Birth:</strong> <span id="date-of-birth"></span></div>
-                    <div class="profile-item"><strong>Father's Name:</strong> <span id="father-name"></span></div>
-                    <div class="profile-item"><strong>Mother's Name:</strong> <span id="mother-name"></span></div>
-                    <div class="profile-item"><strong>Guardian's Contact:</strong> <span id="guardian-contact"></span></div>
-                    <div class="profile-item"><strong>Present Address:</strong> <span id="present-address"></span></div>
-                    <div class="profile-item"><strong>Permanent Address:</strong> <span id="permanent-address"></span></div>
+                    <div class="profile-item"><strong>Name:</strong> <?= isset($user['Name']) ? htmlspecialchars($user['Name']) : '-' ?></div>
+                    <div class="profile-item"><strong>User ID:</strong> <?= isset($user['UserID']) ? htmlspecialchars($user['UserID']) : '-' ?></div>
+                    <div class="profile-item"><strong>Date of Birth:</strong> <?= isset($user['DateOfBirth']) ? htmlspecialchars($user['DateOfBirth']) : '-' ?></div>
+                    <div class="profile-item"><strong>Father's Name:</strong> <?= isset($user['FatherName']) ? htmlspecialchars($user['FatherName']) : '-' ?></div>
+                    <div class="profile-item"><strong>Mother's Name:</strong> <?= isset($user['MotherName']) ? htmlspecialchars($user['MotherName']) : '-' ?></div>
+                    <div class="profile-item"><strong>Guardian's Contact:</strong> <?= isset($user['GuardianPhoneNumber']) ? htmlspecialchars($user['GuardianPhoneNumber']) : '-' ?></div>
+                    <div class="profile-item"><strong>Present Address:</strong> <?= isset($user['PresentAddress']) ? htmlspecialchars($user['PresentAddress']) : '-' ?></div>
+                    <div class="profile-item"><strong>Permanent Address:</strong> <?= isset($user['PermanentAddress']) ? htmlspecialchars($user['PermanentAddress']) : '-' ?></div>
                 </div>
-            
+
+                <!-- Change Password Section -->
                 <div class="change-password-section">
-                    <h4>Change Password</h4>
-                    <form id="change-password-form">
+                    <h3>Change Password</h3>
+                    <form id="change-password-form" action="change_password.php" method="POST">
                         <label for="current-password">Current Password</label>
-                        <input type="password" id="current-password" required>
-            
+                        <input type="password" id="current-password" name="current-password" required>
+
                         <label for="new-password">New Password</label>
-                        <input type="password" id="new-password" required>
-            
+                        <input type="password" id="new-password" name="new-password" required>
+
                         <label for="re-enter-password">Re-enter New Password</label>
-                        <input type="password" id="re-enter-password" required>
-            
-                        <button type="submit">Change Password</button>
+                        <input type="password" id="re-enter-password" name="re-enter-password" required>
+
+                        <button type="submit" class="btn">Change Password</button>
                     </form>
                 </div>
             </section>
