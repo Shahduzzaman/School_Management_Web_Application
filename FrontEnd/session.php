@@ -3,7 +3,7 @@ session_start();
 include('connect_db.php');
 
 // Set session timeout duration in seconds
-$inactive = 10;
+$inactive = 600;
 
 // Update the last activity timestamp
 if (isset($_SESSION['last_activity'])) {
