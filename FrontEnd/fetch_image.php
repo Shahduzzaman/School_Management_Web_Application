@@ -30,7 +30,7 @@ try {
         } else {
             // Serve a default image if the MIME type is invalid
             header("Content-Type: image/jpeg");
-            readfile('path/to/default-profile.jpg');
+            readfile(src="images/user_icon.png);
         }
     } else {
         // Serve a default image if no picture exists

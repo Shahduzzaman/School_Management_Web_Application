@@ -1,16 +1,6 @@
 <?php
-session_start();
-$inactive = 900;
-if (isset($_SESSION['last_activity'])) {
-    if (time() - $_SESSION['last_activity'] > $inactive) {
-        session_unset();
-        session_destroy();
-        header("Location: login.php");
-        exit();
-    }
-}
+include('session.php');
 
-$_SESSION['last_activity'] = time();
 ?>
 
 <!DOCTYPE html>

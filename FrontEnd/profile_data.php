@@ -1,7 +1,7 @@
 <?php
 include('connect_db.php');
+include('session.php');
 
-session_start();
 if (!isset($_SESSION['UserID'])) {
     echo "Please log in to view your profile.";
     exit();
